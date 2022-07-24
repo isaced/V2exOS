@@ -6,12 +6,18 @@
 //
 
 import SwiftUI
+import V2exAPI
+
+let v2ex = V2exAPI(accessToken: "")
 
 @main
 struct V2exOSApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+          NavigationView {
+            SidebarView()
+          }
+          .frame(minWidth: 1000, minHeight: 600)
         }
     }
 }
