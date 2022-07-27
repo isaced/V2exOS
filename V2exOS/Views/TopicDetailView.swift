@@ -34,7 +34,7 @@ struct TopicDetailView: View {
             }
           }
           
-        }.foregroundColor(.gray)
+        }.foregroundColor(Color(NSColor.secondaryLabelColor))
       }
       
       
@@ -45,6 +45,7 @@ struct TopicDetailView: View {
       
     }
     .padding(20)
+    .foregroundColor(Color(NSColor.labelColor))
     
   }
 }

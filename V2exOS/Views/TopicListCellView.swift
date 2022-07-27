@@ -11,6 +11,8 @@ import Kingfisher
 
 struct TopicListCellView: View {
   
+  @Environment(\.colorScheme) var colorScheme
+  
   let topic : V2Topic
   
   var body: some View {
@@ -19,18 +21,22 @@ struct TopicListCellView: View {
     } label: {
       
       HStack {
-        KFImage.url(URL(string: topic.member?.avatarLarge ?? ""))
-          .fade(duration: 0.25)
-          .frame(width: 50, height: 50)
-          .mask(RoundedRectangle(cornerRadius: 8))
+        if let avatarUrl = topic.member?.avatarLarge {
+          KFImage.url(URL(string: avatarUrl))
+            .fade(duration: 0.25)
+            .frame(width: 50, height: 50)
+            .mask(RoundedRectangle(cornerRadius: 8))
+        }
         VStack {
           
           Text(topic.title ?? "")
             .lineLimit(2)
+            
           
 //          Text(String(topic.replies ?? 0))
         }
       }
+      .foregroundColor(Color(NSColor.labelColor))
     }
   }
 }
