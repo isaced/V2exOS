@@ -24,17 +24,38 @@ struct TopicListCellView: View {
         if let avatarUrl = topic.member?.avatarLarge {
           KFImage.url(URL(string: avatarUrl))
             .fade(duration: 0.25)
-            .frame(width: 50, height: 50)
+            .frame(width: 48, height: 48)
             .mask(RoundedRectangle(cornerRadius: 8))
         }
-        VStack {
+        VStack(alignment: .leading, spacing: 6) {
           
           Text(topic.title ?? "")
             .lineLimit(2)
-            
           
-//          Text(String(topic.replies ?? 0))
+          HStack() {
+            if let username = topic.member?.username {
+              Text(username)
+              
+              Text("•")
+            }
+            
+            
+            if let lastModified = topic.lastModified {
+              Text(Date.init(timeIntervalSince1970: TimeInterval(lastModified)).fromNow())
+            }
+          }
+          .foregroundColor(.gray)
         }
+        
+        
+        if let replies = topic.replies {
+          Spacer()
+          Text(String(replies))
+            .foregroundColor(.white)
+            .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
+            .background(RoundedRectangle(cornerRadius: 4).fill(.gray))
+        }
+        
       }
       .foregroundColor(Color(NSColor.labelColor))
     }
@@ -73,5 +94,6 @@ struct TopicListCellView_Previews: PreviewProvider {
                         lastModified: 1658649797,
                         replies: 1111)
     TopicListCellView(topic: topic)
+      .previewLayout(.fixed(width: 320, height: 200))
   }
 }
