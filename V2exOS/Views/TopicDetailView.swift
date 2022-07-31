@@ -12,9 +12,10 @@ import MarkdownUI
 struct TopicDetailView: View {
   
   var topic: V2Topic
+  @State var commentList: [V2Comment]?
   
   var body: some View {
-    ScrollView {
+    List {
       VStack(alignment: .leading, spacing: 5) {
         Text(topic.title ?? "" )
           .font(.title)
@@ -35,53 +36,41 @@ struct TopicDetailView: View {
           }
           
         }.foregroundColor(Color(NSColor.secondaryLabelColor))
+        
+        Spacer()
+        
+        Markdown(topic.content ?? "")
+          .font(.body)
+          .fixedSize(horizontal: false, vertical: true)
       }
       
-      
-      Markdown(topic.content ?? "")
-        .font(.body)
-        .fixedSize(horizontal: false, vertical: true)
-        .padding(30)
-      
+      if let commentList = commentList{
+        Spacer()
+        CommentListView(commentList: commentList)
+      }
     }
-    .padding(20)
+    .padding(EdgeInsets(top: 0, leading: 20, bottom: 20, trailing: 20))
     .foregroundColor(Color(NSColor.labelColor))
-    
+    .onAppear(perform: loadComments)
+  }
+  
+  func loadComments(){
+    Task {
+      let res = try await v2ex.replies(topicId: topic.id)
+      commentList = res?.result
+    }
   }
 }
 
 struct TopicDetailView_Previews: PreviewProvider {
   static var previews: some View {
-    let member = V2Member(id: 79764,
-                          username: "ljsh093",
-                          url: "https://www.v2ex.com/u/ljsh093",
-                          website: nil,
-                          twitter: nil,
-                          psn: nil,
-                          github: nil,
-                          btc: nil,
-                          location: nil,
-                          tagline: nil,
-                          bio: nil,
-                          avatarMini: "https://cdn.v2ex.com/avatar/ff10/6e6c/79764_mini.png?m=1657684598",
-                          avatarNormal: "https://cdn.v2ex.com/avatar/ff10/6e6c/79764_normal.png?m=1657684598",
-                          avatarLarge: "https://cdn.v2ex.com/avatar/ff10/6e6c/79764_large.png?m=1657684598",
-                          created: 1414903742,
-                          lastModified: 1657684598)
-    let topic = V2Topic(id: 1,
-                        node: nil,
-                        member: member,
-                        lastReplyBy: "ljsh093",
-                        lastTouched: 1658649862,
-                        title: "万行原生 Javascript 该如何维护？",
-                        url: "https://www.v2ex.com/t/868366",
-                        created: 1658649797,
-                        deleted: 0,
-                        content: "想拆成 Typescript 模块化，有没有什么指路手册？",
-                        contentRendered: "<p>想拆成 Typescript 模块化，有没有什么指路手册？</p>\n",
-                        lastModified: 1658649797,
-                        replies: 1111)
-    TopicDetailView(topic: topic)
+    TopicDetailView(topic: PreviewData.topic,
+                    commentList: [
+                      PreviewData.comment,
+                      PreviewData.comment,
+                      PreviewData.comment
+                    ])
+    .previewLayout(.fixed(width: 300, height: .infinity))
   }
 }
 
