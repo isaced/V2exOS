@@ -14,10 +14,22 @@ struct SidebarView: View {
   
   var body: some View {
     List() {
+      
       Section(header: Text("Home")) {
-        NavigationLink("全部") {
-          TopicListView(nodeName: "ALL")
+        NavigationLink(destination: TopicListView(nodeName: "ALL")) {
+          Label("全部", systemImage: "chart.bar")
         }
+      }
+      
+      Section(header: Text("账户")) {
+        NavigationLink(destination: ProfileView()) {
+          Label("登录", systemImage: "person.crop.circle")
+        }.tag("profile")
+        NavigationLink(destination: ProfileView()) {
+          Label("消息", systemImage: "envelope")
+        }
+        .tag("inbox")
+        .disabled(true)
       }
       
       Section(header: Text("所有节点")) {
