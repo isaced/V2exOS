@@ -1,4 +1,4 @@
-# V2exOS
+# <img width="50" src="/V2exOS/Assets.xcassets/AppIcon.appiconset/icon-1024.png" /> V2exOS
 
 一个用 SwiftUI 编写的 V2ex macOS 客户端。
 
