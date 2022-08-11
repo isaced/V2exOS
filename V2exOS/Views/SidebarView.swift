@@ -10,6 +10,9 @@ import V2exAPI
 
 struct SidebarView: View {
   
+  
+  @EnvironmentObject private var currentUser: CurrentUserStore
+  
   @State var nodeList : [V2Node]?
   
   var body: some View {
@@ -25,11 +28,11 @@ struct SidebarView: View {
         NavigationLink(destination: ProfileView()) {
           Label("登录", systemImage: "person.crop.circle")
         }.tag("profile")
-        NavigationLink(destination: ProfileView()) {
+        NavigationLink(destination: InboxListView()) {
           Label("消息", systemImage: "envelope")
         }
         .tag("inbox")
-        .disabled(true)
+        .disabled(currentUser.accessToken == nil)
       }
       
       Section(header: Text("所有节点")) {

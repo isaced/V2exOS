@@ -40,4 +40,13 @@ public class CurrentUserStore: ObservableObject {
     accessToken = token
     keychain[KeychainTokenKey] = token
   }
+  
+  public func checkToken(token: String) async -> Bool {
+    do {
+      let res = try await v2ex.member()
+      return res?.success ?? false
+    }catch{
+      return false
+    }
+  }
 }

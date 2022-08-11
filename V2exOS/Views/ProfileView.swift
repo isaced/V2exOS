@@ -12,15 +12,27 @@ struct ProfileView: View {
   @EnvironmentObject private var currentUser: CurrentUserStore
   
   @State var accessToken: String = ""
+  @State var isAccessTokenChecked: Bool? = nil
   
   var body: some View {
     Text("profile")
     Form {
-      TextField("Personal Access Token", text: $accessToken)
+      HStack {
+        TextField("Personal Access Token", text: $accessToken)
+        
+        if let isAccessTokenChecked = isAccessTokenChecked {
+          if isAccessTokenChecked {
+            Image(systemName: "checkmark.circle.fill")
+              .foregroundColor(.green)
+          }else{
+            Image(systemName: "exclamationmark.circle.fill")
+              .foregroundColor(.red)
+          }
+        }
+      }
       
       Button {
-
-        currentUser.saveToken(token: accessToken)
+        saveToken()
       } label: {
         Text("保存")
       }
@@ -31,6 +43,14 @@ struct ProfileView: View {
     }
   }
   
+  func saveToken() {
+    Task {
+      isAccessTokenChecked =  await currentUser.checkToken(token: accessToken)
+      if isAccessTokenChecked != nil {
+        currentUser.saveToken(token: accessToken)
+      }
+    }
+  }
 }
 
 
