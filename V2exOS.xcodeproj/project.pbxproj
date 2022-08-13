@@ -23,6 +23,7 @@
 		0DA3F3A128A40ACF00E7224D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA3F3A028A40ACF00E7224D /* ProfileView.swift */; };
 		0DA3F3A428A411ED00E7224D /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 0DA3F3A328A411ED00E7224D /* KeychainAccess */; };
 		0DA3F3A728A412FE00E7224D /* CurrentUserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA3F3A628A412FE00E7224D /* CurrentUserStore.swift */; };
+		0DC5364528A7A9D80093005B /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC5364428A7A9D80093005B /* LoadingCell.swift */; };
 		0DF3300E28A55DEA00AEF312 /* InboxListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF3300D28A55DEA00AEF312 /* InboxListView.swift */; };
 		0DF3301028A56A3600AEF312 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF3300F28A56A3600AEF312 /* StringExt.swift */; };
 /* End PBXBuildFile section */
@@ -43,6 +44,7 @@
 		0D8F3358288D35D800C27AF1 /* TimeFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormat.swift; sourceTree = "<group>"; };
 		0DA3F3A028A40ACF00E7224D /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		0DA3F3A628A412FE00E7224D /* CurrentUserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserStore.swift; sourceTree = "<group>"; };
+		0DC5364428A7A9D80093005B /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
 		0DF3300D28A55DEA00AEF312 /* InboxListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxListView.swift; sourceTree = "<group>"; };
 		0DF3300F28A56A3600AEF312 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +122,7 @@
 				0D8F334F288D1F8800C27AF1 /* TopicListCellView.swift */,
 				0D8A2E6E2896AB49001B2769 /* CommentListView.swift */,
 				0DF3300D28A55DEA00AEF312 /* InboxListView.swift */,
+				0DC5364428A7A9D80093005B /* LoadingCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				0D8F3350288D1F8800C27AF1 /* TopicListCellView.swift in Sources */,
 				0D033B42288D15CF00129C9B /* TopicDetailView.swift in Sources */,
 				0D033B40288D140C00129C9B /* TopicListView.swift in Sources */,
+				0DC5364528A7A9D80093005B /* LoadingCell.swift in Sources */,
 				0D033B26288CD64500129C9B /* V2exOSApp.swift in Sources */,
 				0D033B3E288D0FF700129C9B /* SidebarView.swift in Sources */,
 				0DF3300E28A55DEA00AEF312 /* InboxListView.swift in Sources */,
