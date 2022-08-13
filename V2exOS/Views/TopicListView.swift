@@ -33,8 +33,8 @@ struct TopicListView: View {
       .listStyle(.inset)
       .frame(minWidth: 400, idealWidth: 500, maxWidth: 700)
       .foregroundColor(.black)
-      .onAppear {
-        Task {
+      .task {
+        do {
           isLoading = true
           
           var topics : [V2Topic]? = nil
@@ -47,7 +47,7 @@ struct TopicListView: View {
           self.topics = topics
           
           isLoading = false
-        }
+        } catch {}
       }
     }}
 }

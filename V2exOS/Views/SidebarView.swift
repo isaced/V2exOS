@@ -26,7 +26,7 @@ struct SidebarView: View {
       
       Section(header: Text("账户")) {
         NavigationLink(destination: ProfileView()) {
-          Label("登录", systemImage: "person.crop.circle")
+          Label((currentUser.accessToken != nil) ? "个人信息" : "登录", systemImage: "person.crop.circle")
         }.tag("profile")
         NavigationLink(destination: InboxListView()) {
           Label("消息", systemImage: "envelope")

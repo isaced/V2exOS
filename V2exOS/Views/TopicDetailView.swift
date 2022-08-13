@@ -49,7 +49,6 @@ struct TopicDetailView: View {
         CommentListView(commentList: commentList)
       }
     }
-    .padding(EdgeInsets(top: 0, leading: 20, bottom: 20, trailing: 20))
     .foregroundColor(Color(NSColor.labelColor))
     .onAppear(perform: loadComments)
   }

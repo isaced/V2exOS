@@ -42,7 +42,8 @@ struct CommentListView: View {
           }
           .foregroundColor(.gray)
           
-          Text(comment.content)
+          Markdown(comment.content)
+            .font(.body)
           
         }
       }

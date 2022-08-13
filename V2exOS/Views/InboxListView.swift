@@ -18,10 +18,10 @@ struct InboxListView: View {
   var body: some View {
     VStack {
       if let _ = currentUser.accessToken {
+        
         List {
           ForEach(notificationList) { noti in
             VStack(alignment: .leading) {
-              
               HStack {
                 Text(noti.text?.htmlToString() ?? "")
                   .font(.body)
@@ -34,14 +34,16 @@ struct InboxListView: View {
                 }
               }
               
-              if let payload = noti.payloadRendered, payload.count > 0 {
+              if let payload = noti.payloadRendered?.htmlToString(), payload.count > 0 {
                 Text(payload)
                   .font(.body)
                   .padding(EdgeInsets(top: 4, leading: 10, bottom: 4, trailing: 10))
               }
             }
+            
           }
         }.listRowInsets(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
+        
       }else{
         Text("请先登录")
       }

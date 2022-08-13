@@ -29,6 +29,8 @@ public class CurrentUserStore: ObservableObject {
   public init() {
     if let token = readToken(){
       accessToken = token
+      
+      fetchUser()
     }
   }
   
@@ -39,14 +41,52 @@ public class CurrentUserStore: ObservableObject {
   public func saveToken(token: String) {
     accessToken = token
     keychain[KeychainTokenKey] = token
+    
+    fetchUser()
+  }
+  
+  func clearToken() {
+    do {
+      try keychain.remove(KeychainTokenKey)
+    }catch {
+      print(error)
+    }
+  }
+  
+  public func logout(){
+    accessToken = nil
+    user = nil
+    clearToken()
   }
   
   public func checkToken(token: String) async -> Bool {
     do {
-      let res = try await v2ex.member()
-      return res?.success ?? false
+      v2ex.accessToken = token
+      let res = try await v2ex.token()
+      if let tokenObj = res?.result {
+        print(tokenObj)
+        if let _ = tokenObj.token {
+          return true
+        }
+      }
     }catch{
-      return false
+      print(error)
+    }
+    v2ex.accessToken = nil
+    return false
+  }
+  
+  func fetchUser() {
+    Task {
+      do {
+        if let res = try await v2ex.member(){
+          if res.success {
+            user = res.result;
+          }
+        }
+      }catch{
+        return
+      }
     }
   }
 }

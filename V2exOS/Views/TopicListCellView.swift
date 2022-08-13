@@ -23,6 +23,7 @@ struct TopicListCellView: View {
       HStack {
         if let avatarUrl = topic.member?.avatarLarge {
           KFImage.url(URL(string: avatarUrl))
+            .resizable()
             .fade(duration: 0.25)
             .frame(width: 48, height: 48)
             .mask(RoundedRectangle(cornerRadius: 8))
