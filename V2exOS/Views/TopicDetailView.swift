@@ -12,7 +12,14 @@ import MarkdownUI
 struct TopicDetailView: View {
   
   var topic: V2Topic
+  
   @State var commentList: [V2Comment]?
+  @State var page = 1
+  @State var commenEnd = false
+  
+  func hasCommen() -> Bool {
+    return commenEnd || commentList?.count ?? 0 < topic.replies ?? 0
+  }
   
   var body: some View {
     List {
@@ -44,19 +51,49 @@ struct TopicDetailView: View {
           .fixedSize(horizontal: false, vertical: true)
       }
       
-      if let commentList = commentList{
+      if let commentList = commentList {
         Spacer()
         CommentListView(commentList: commentList)
+        
+        if hasCommen() {
+          ProgressView()
+            .onAppear {
+              loadComments(page: page + 1)
+            }
+        }
       }
     }
     .foregroundColor(Color(NSColor.labelColor))
-    .onAppear(perform: loadComments)
+    .task {
+      loadComments(page: 1)
+    }
   }
   
-  func loadComments(){
+  func loadComments(page: Int) {
+    print("loadComments, page:", page)
+    
     Task {
-      let res = try await v2ex.replies(topicId: topic.id)
-      commentList = res?.result
+      do {
+        let res = try await v2ex.replies(topicId: topic.id, page: page)
+        if page == 1 {
+          commentList = res?.result
+        }else{
+          if let list = res?.result {
+            if !hasCommen() {
+              return
+            }
+            
+            commentList?.append(contentsOf: list)
+            // 到底了
+            if list.count == 0 {
+              commenEnd = true
+            }
+          }
+        }
+      } catch {
+        commenEnd = true
+        print(error)
+      }
     }
   }
 }

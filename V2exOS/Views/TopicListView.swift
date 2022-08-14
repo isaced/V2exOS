@@ -12,43 +12,52 @@ struct TopicListView: View {
   
   var nodeName: String
   
-  @State var isLoading = false
+  @State var isLoading = true
   @State var topics: [V2Topic]?
   @State var page = 1
+  @State var error: Error?
   
   var body: some View {
     NavigationView{
-      List {
-        if isLoading {
-          VStack(alignment: .center) {
-            ProgressView()
-          }
-        }else{
+      if isLoading {
+        ProgressView()
+          .frame(minWidth: 400)
+      }else{
+        List {
           if let topics = topics {
             ForEach(topics) { topic in
               TopicListCellView(topic: topic)
             }
+            
+            if topics.count > 0 && nodeName != "ALL" {
+              ProgressView()
+                .onAppear {
+                  Task {
+                    await self.loadData(page: self.page + 1)
+                  }
+                }
+            }
           }
           
-          if topics != nil && nodeName != "ALL" {
-            ProgressView()
-              .task {
-                await self.onNextPage()
-              }
-          }
         }
+        .listStyle(.inset)
+        .frame(minWidth: 400, idealWidth: 500, maxWidth: 700)
+        .foregroundColor(.black)
       }
-      .listStyle(.inset)
-      .frame(minWidth: 400, idealWidth: 500, maxWidth: 700)
-      .foregroundColor(.black)
-      .task {
-        await loadData()
-      }
+    }
+    .task {
+      await loadData()
     }
   }
   
-  func loadData() async {
-    isLoading = true
+  func loadData(page: Int = 1) async {
+    if error != nil {
+      return
+    }
+    
+    if page == 1 {
+      isLoading = true
+    }
     
     do {
       var topics : [V2Topic]? = nil
@@ -56,28 +65,22 @@ struct TopicListView: View {
       if nodeName == "ALL" {
         topics = try await v2ex.latestTopics()
       }else{
-        topics = try await v2ex.topics(nodeName: nodeName)?.result
+        topics = try await v2ex.topics(nodeName: nodeName, page: page)?.result
       }
-      self.topics = topics
       
-    } catch {
-      print(error)
-    }
-    
-    isLoading = false
-  }
-  
-  func onNextPage() async {
-    isLoading = true
-    
-    do {
-      if nodeName != "ALL" {
-        if let topics = try await v2ex.topics(nodeName: nodeName, page: page + 1)?.result {
-          page = page + 1
+      if page == 1 {
+        self.topics = topics
+      }else{
+        self.page = page
+        if let topics = topics {
           self.topics?.append(contentsOf: topics)
         }
       }
-    } catch {}
+      
+    } catch {
+      self.error = error;
+      print(error)
+    }
     
     isLoading = false
   }
