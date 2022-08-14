@@ -64,6 +64,15 @@
       }
     },
     {
+      "identity" : "v2exapi",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/isaced/V2exAPI.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "b9296e6024479160384aa9f96f80201c57209f9d"
+      }
+    },
+    {
       "identity" : "xctest-dynamic-overlay",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/pointfreeco/xctest-dynamic-overlay",
