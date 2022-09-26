@@ -1,9 +1,9 @@
-# <img width="50" src="/V2exOS/Assets.xcassets/AppIcon.appiconset/icon-1024.png" /> V2exOS
+# <img width="50" src="/V2exOS/Assets.xcassets/AppIcon.appiconset/icon_256.png" /> V2exOS
 
 一个用 SwiftUI 编写的 V2ex macOS 客户端。
 
-![screenshot](https://user-images.githubusercontent.com/2088605/182183782-79aa8524-dea4-40d3-87a3-6b542678f568.png#gh-dark-mode-only)
-![screenshot](https://user-images.githubusercontent.com/2088605/182184352-52019bd0-da89-4703-9d83-2b85aa10617e.png##gh-light-mode-only)
+![screenshot](https://user-images.githubusercontent.com/2088605/192312063-def16466-052b-457a-9b4c-856b2afb3a42.png#gh-dark-mode-only)
+![screenshot](https://user-images.githubusercontent.com/2088605/192312051-9ec1e43d-4aee-46fb-a61f-fd865e35fca4.png##gh-light-mode-only)
 
 ## 关于
 
