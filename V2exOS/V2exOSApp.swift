@@ -20,5 +20,14 @@ struct V2exOSApp: App {
       .frame(minWidth: 1000, minHeight: 600)
       .environmentObject(CurrentUserStore.shared)
     }
+    .commands {
+      CommandGroup(replacing: .help) {
+        Button("GitHub") {
+          if let url = URL(string: "https://github.com/isaced/V2exOS") {
+            NSWorkspace.shared.open(url)
+          }
+        }
+      }
+    }
   }
 }
