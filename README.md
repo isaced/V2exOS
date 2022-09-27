@@ -30,6 +30,10 @@
 
 > 当然部分不需要鉴权的功能不登陆也是可以直接使用的
 
+**为什么看不到帖子的回复？**
+
+[获取指定主题下的回复](https://v2ex.com/help/api#get-topic-replies) API 需要认证，参考上述 Personal Access Token 认证登录后即可看到回复列表了。
+
 ## 贡献
 
 - 欢迎大家添砖加瓦，需要某个功能可以先提交 [issue](https://github.com/isaced/V2exOS/issues) 讨论，当然也可以直接 [fork](https://github.com/isaced/V2exOS/fork) 仓库，修改代码提交 PR。
