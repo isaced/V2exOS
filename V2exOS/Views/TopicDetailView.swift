@@ -11,6 +11,8 @@ import MarkdownUI
 
 struct TopicDetailView: View {
   
+  @EnvironmentObject private var currentUser: CurrentUserStore
+  
   var topic: V2Topic
   
   @State var commentList: [V2Comment]?
@@ -18,7 +20,7 @@ struct TopicDetailView: View {
   @State var commenEnd = false
   
   func hasCommen() -> Bool {
-    return commenEnd || commentList?.count ?? 0 < topic.replies ?? 0
+    return currentUser.user != nil && (commenEnd || commentList?.count ?? 0 < topic.replies ?? 0)
   }
   
   var body: some View {
@@ -51,16 +53,16 @@ struct TopicDetailView: View {
           .fixedSize(horizontal: false, vertical: true)
       }
       
-      if let commentList = commentList {
+      Spacer()
+      
+      CommentListView(commentCount: topic.replies, commentList: commentList)
+      
+      if hasCommen() {
         Spacer()
-        CommentListView(commentList: commentList)
-        
-        if hasCommen() {
-          ProgressView()
-            .onAppear {
-              loadComments(page: page + 1)
-            }
-        }
+        ProgressView()
+          .onAppear {
+            loadComments(page: page + 1)
+          }
       }
     }
     .foregroundColor(Color(NSColor.labelColor))
