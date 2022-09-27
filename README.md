@@ -22,6 +22,11 @@
 - [ ] 发表评论
 - [ ] 发表主题
 
+## 帮助
+
+**如何登录？**
+
+在 V2ex 登录你的账号，进入 [[设置 -> Tokens]](https://v2ex.com/settings/tokens) 页面生成 Personal Access Token（建议有效期长一些），填入 V2exOS 即可，V2exOS 会将你的 Personal Access Token 保存到本地的 Keychain 钥匙串中，在需要访问 [V2ex API](https://v2ex.com/help/api) 时进行使用。
 
 ## 贡献
 
@@ -34,6 +39,7 @@
 - [Kingfisher](https://github.com/onevcat/Kingfisher) - 网络图片加载和缓存
 - [KeychainAccess](https://github.com/kishikawakatsumi/KeychainAccess) - Keychain 便捷访问存储 Personal Access Token
 - [MarkdownUI](https://github.com/gonzalezreal/AttributedText) - SwiftUI Markdown 渲染
+- [RedditOS](https://github.com/Dimillian/RedditOS) - 一个 SwiftUI 写的 Reddit macOS 客户端，灵感来源之一
 
 ## LICENSE
 
