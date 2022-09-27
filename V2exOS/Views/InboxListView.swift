@@ -41,6 +41,7 @@ struct InboxListView: View {
               }
             }
             
+            Divider()
           }
         }.listRowInsets(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
         
