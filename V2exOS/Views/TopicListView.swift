@@ -41,7 +41,7 @@ struct TopicListView: View {
           
         }
         .listStyle(.inset)
-        .frame(minWidth: 400, idealWidth: 500, maxWidth: 700)
+        .frame(minWidth: 400, idealWidth: 500)
         .foregroundColor(.black)
       }
     }
