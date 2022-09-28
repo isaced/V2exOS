@@ -14,13 +14,20 @@
 
 ## 功能
 
+**基本功能**
+
+- [x] Personal Access Token 授权登录
 - [x] 主题列表
 - [x] 评论列表
 - [x] 通知列表
 - [x] 深色模式
-- [x] Personal Access Token 授权
-- [ ] 发表评论
-- [ ] 发表主题
+- [ ] 热门列表
+- [ ] 收藏节点
+- [ ] 发表主题/评论（暂无 API，详见 [#4](https://github.com/isaced/V2exOS/issues/4)）
+
+**高级功能**
+
+- [ ] Proxy 代理
 
 ## 帮助
 
