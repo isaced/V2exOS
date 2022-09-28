@@ -107,11 +107,9 @@
 			children = (
 				0D033B3D288D0FF700129C9B /* SidebarView.swift */,
 				0DA3F3A028A40ACF00E7224D /* ProfileView.swift */,
-				0D033B3F288D140C00129C9B /* TopicListView.swift */,
-				0D033B41288D15CF00129C9B /* TopicDetailView.swift */,
-				0D8F334F288D1F8800C27AF1 /* TopicListCellView.swift */,
-				0D8A2E6E2896AB49001B2769 /* CommentListView.swift */,
 				0DF3300D28A55DEA00AEF312 /* InboxListView.swift */,
+				0DF9130528E49D2F00A2CDEC /* TopicList */,
+				0DF9130428E49D2000A2CDEC /* TopicDetail */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -139,6 +137,24 @@
 				0DA3F3A628A412FE00E7224D /* CurrentUserStore.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		0DF9130428E49D2000A2CDEC /* TopicDetail */ = {
+			isa = PBXGroup;
+			children = (
+				0D033B41288D15CF00129C9B /* TopicDetailView.swift */,
+				0D8A2E6E2896AB49001B2769 /* CommentListView.swift */,
+			);
+			path = TopicDetail;
+			sourceTree = "<group>";
+		};
+		0DF9130528E49D2F00A2CDEC /* TopicList */ = {
+			isa = PBXGroup;
+			children = (
+				0D033B3F288D140C00129C9B /* TopicListView.swift */,
+				0D8F334F288D1F8800C27AF1 /* TopicListCellView.swift */,
+			);
+			path = TopicList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
