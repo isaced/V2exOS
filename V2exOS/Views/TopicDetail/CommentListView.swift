@@ -33,18 +33,19 @@ struct CommentListView: View {
           
           Divider()
           
-          HStack {
-            if let avatarUrl = comment.member.avatarLarge {
+          HStack(alignment: .top) {
+            if let avatarUrl = comment.member.avatar {
               KFImage.url(URL(string: avatarUrl))
                 .fade(duration: 0.25)
                 .frame(width: 40, height: 40)
-                .mask(RoundedRectangle(cornerRadius: 8))
+                .mask(RoundedRectangle(cornerRadius: 4))
             }
             
             VStack(alignment: .leading, spacing: 6) {
               HStack {
                 if let username = comment.member.username {
                   Text(username)
+                    .foregroundColor(.secondary)
                     .fontWeight(.bold)
                 }
                 
@@ -52,7 +53,7 @@ struct CommentListView: View {
                   Text(Date(timeIntervalSince1970: TimeInterval(created)).fromNow())
                 }
               }
-              .foregroundColor(.gray)
+              .foregroundColor(Color(NSColor.tertiaryLabelColor))
               
               Markdown(comment.content)
                 .font(.body)
