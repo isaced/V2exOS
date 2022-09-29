@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/pointfreeco/combine-schedulers",
       "state" : {
-        "revision" : "0ba3a562716efabb585ccb169450c5389107286b",
-        "version" : "0.6.0"
+        "revision" : "aa3e575929f2bcc5bad012bd2575eae716cbcdf7",
+        "version" : "0.8.0"
       }
     },
     {
@@ -32,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/onevcat/Kingfisher",
       "state" : {
-        "revision" : "2235a22ca249199cb736237f4bb9cc12b6ed416a",
-        "version" : "7.3.0"
+        "revision" : "be1a1acb283a702b99b630f586877ba02234b4cb",
+        "version" : "7.3.2"
       }
     },
     {
@@ -68,8 +68,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/isaced/V2exAPI.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "b9296e6024479160384aa9f96f80201c57209f9d"
+        "revision" : "d7c426a734d4e029195c234da476f78d99e7cc64",
+        "version" : "1.0.2"
       }
     },
     {
@@ -77,8 +77,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/pointfreeco/xctest-dynamic-overlay",
       "state" : {
-        "revision" : "ef8e14e7ce1c0c304c644c6ba365d06c468ded6b",
-        "version" : "0.3.3"
+        "revision" : "30314f1ece684dd60679d598a9b89107557b67d9",
+        "version" : "0.4.1"
       }
     }
   ],
