@@ -16,8 +16,9 @@ struct TopicDetailView: View {
   var topic: V2Topic
   
   @State var commentList: [V2Comment]?
-  @State var page = 1
+  @State var page = 0
   @State var commenEnd = false
+  @State var isCommentLoading = false
   
   func hasCommen() -> Bool {
     return currentUser.user != nil && (commenEnd || commentList?.count ?? 0 < topic.replies ?? 0)
@@ -32,9 +33,11 @@ struct TopicDetailView: View {
         
         HStack(alignment: .bottom, spacing: 20) {
           
-          HStack(alignment: .bottom, spacing: 5) {
-            Image(systemName: "person.circle")
-            Text(topic.member?.username ?? "")
+          if let authorName = topic.member?.username {
+            HStack(alignment: .bottom, spacing: 5) {
+              Image(systemName: "person.circle")
+              Text(authorName)
+            }
           }
           
           HStack(alignment: .bottom, spacing: 5) {
@@ -72,16 +75,21 @@ struct TopicDetailView: View {
   }
   
   func loadComments(page: Int) {
-    print("loadComments, page:", page)
+    if isCommentLoading {
+      return
+    }
+    isCommentLoading = true
     
     Task {
       do {
         let res = try await v2ex.replies(topicId: topic.id, page: page)
-        if page == 1 {
+        self.page = page
+        if page <= 1 {
           commentList = res?.result
         }else{
           if let list = res?.result {
             if !hasCommen() {
+              isCommentLoading = false
               return
             }
             
@@ -96,6 +104,8 @@ struct TopicDetailView: View {
         commenEnd = true
         print(error)
       }
+      
+      isCommentLoading = false
     }
   }
 }
