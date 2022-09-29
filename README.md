@@ -52,7 +52,7 @@
 - [V2exAPI](https://github.com/isaced/V2exAPI) - V2ex Open API 的 Swift 封装
 - [Kingfisher](https://github.com/onevcat/Kingfisher) - 网络图片加载和缓存
 - [KeychainAccess](https://github.com/kishikawakatsumi/KeychainAccess) - Keychain 便捷访问存储 Personal Access Token
-- [MarkdownUI](https://github.com/gonzalezreal/AttributedText) - SwiftUI Markdown 渲染
+- [MarkdownUI](https://github.com/gonzalezreal/MarkdownUI) - SwiftUI Markdown 渲染
 - [RedditOS](https://github.com/Dimillian/RedditOS) - 一个 SwiftUI 写的 Reddit macOS 客户端，灵感来源之一
 
 ## LICENSE
