@@ -25,6 +25,7 @@ struct TopicListCellView: View {
           KFImage.url(URL(string: avatarUrl))
             .resizable()
             .fade(duration: 0.25)
+            .scaledToFit()
             .frame(width: 48, height: 48)
             .mask(RoundedRectangle(cornerRadius: 8))
         }

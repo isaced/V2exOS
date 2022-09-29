@@ -36,7 +36,9 @@ struct CommentListView: View {
           HStack(alignment: .top) {
             if let avatarUrl = comment.member.avatar {
               KFImage.url(URL(string: avatarUrl))
+                .resizable()
                 .fade(duration: 0.25)
+                .scaledToFit()
                 .frame(width: 40, height: 40)
                 .mask(RoundedRectangle(cornerRadius: 4))
             }
