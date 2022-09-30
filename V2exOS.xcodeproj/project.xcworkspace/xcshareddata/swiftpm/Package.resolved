@@ -68,8 +68,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/isaced/V2exAPI.git",
       "state" : {
-        "revision" : "d7c426a734d4e029195c234da476f78d99e7cc64",
-        "version" : "1.0.2"
+        "revision" : "ecf06e3c479d87553aa14deed62b3469eb80b5ca",
+        "version" : "1.0.3"
       }
     },
     {
