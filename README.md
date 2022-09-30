@@ -27,9 +27,17 @@
 
 **高级功能**
 
-- [ ] Proxy 代理（🔧 开发中，即将上线）
+- [x] Proxy 代理
 
 ## 帮助
+
+**如何设置代理？**
+
+菜单： V2exOS -> Preferences （快捷键：<kbd>Command</kbd> + <kbd>,</kbd>）
+
+<img src="https://user-images.githubusercontent.com/2088605/193294617-e027d1da-8bd7-44f4-9ade-11f2cf807d81.png" height="450">
+
+> 数据加载不出来有可能是需要挂代理，你懂的
 
 **如何登录 V2exOS？**
 
