@@ -7,15 +7,18 @@
 
 import SwiftUI
 import V2exAPI
+import Kingfisher
 
 struct TopicListView: View {
   
   var nodeName: String
+  var node: V2Node?
   
   @State var isLoading = true
   @State var topics: [V2Topic]?
   @State var page = 1
   @State var error: Error?
+  @State var _node: V2Node?
   
   var body: some View {
     NavigationView{
@@ -48,6 +51,15 @@ struct TopicListView: View {
     .task {
       await loadData()
     }
+    .navigationTitle(_node?.title ?? "V2exOS")
+    .navigationSubtitle(_node?.header ?? "")
+    .toolbar {
+        KFImage.url(URL(string: _node?.avatarNormal ?? ""))
+          .resizable()
+          .fade(duration: 0.25)
+          .frame(width: 20, height: 20)
+          .mask(RoundedRectangle(cornerRadius: 8))
+    }
   }
   
   func loadData(page: Int = 1) async {
@@ -66,6 +78,7 @@ struct TopicListView: View {
         topics = try await v2ex.latestTopics()
       }else{
         topics = try await v2ex.topics(nodeName: nodeName, page: page)?.result
+        _node =  try await v2ex.nodesShow(name: nodeName)
       }
       
       if page == 1 {
