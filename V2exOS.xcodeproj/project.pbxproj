@@ -14,6 +14,8 @@
 		0D033B40288D140C00129C9B /* TopicListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D033B3F288D140C00129C9B /* TopicListView.swift */; };
 		0D033B42288D15CF00129C9B /* TopicDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D033B41288D15CF00129C9B /* TopicDetailView.swift */; };
 		0D12614A28A94AA3009DBCE2 /* V2exAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 0D12614928A94AA3009DBCE2 /* V2exAPI */; };
+		0D40378C28E6E4EA00B1A341 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D40378B28E6E4EA00B1A341 /* SettingsView.swift */; };
+		0D40378E28E6E4F500B1A341 /* ProxyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D40378D28E6E4F500B1A341 /* ProxyHelper.swift */; };
 		0D8A2E6F2896AB49001B2769 /* CommentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8A2E6E2896AB49001B2769 /* CommentListView.swift */; };
 		0D8A2E712896AE19001B2769 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8A2E702896AE19001B2769 /* PreviewData.swift */; };
 		0D8F3350288D1F8800C27AF1 /* TopicListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8F334F288D1F8800C27AF1 /* TopicListCellView.swift */; };
@@ -36,6 +38,8 @@
 		0D033B3D288D0FF700129C9B /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		0D033B3F288D140C00129C9B /* TopicListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicListView.swift; sourceTree = "<group>"; };
 		0D033B41288D15CF00129C9B /* TopicDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicDetailView.swift; sourceTree = "<group>"; };
+		0D40378B28E6E4EA00B1A341 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		0D40378D28E6E4F500B1A341 /* ProxyHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProxyHelper.swift; sourceTree = "<group>"; };
 		0D8A2E6E2896AB49001B2769 /* CommentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListView.swift; sourceTree = "<group>"; };
 		0D8A2E702896AE19001B2769 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		0D8F334F288D1F8800C27AF1 /* TopicListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicListCellView.swift; sourceTree = "<group>"; };
@@ -108,6 +112,7 @@
 				0D033B3D288D0FF700129C9B /* SidebarView.swift */,
 				0DA3F3A028A40ACF00E7224D /* ProfileView.swift */,
 				0DF3300D28A55DEA00AEF312 /* InboxListView.swift */,
+				0D40378B28E6E4EA00B1A341 /* SettingsView.swift */,
 				0DF9130528E49D2F00A2CDEC /* TopicList */,
 				0DF9130428E49D2000A2CDEC /* TopicDetail */,
 			);
@@ -127,6 +132,7 @@
 				0D8F3358288D35D800C27AF1 /* TimeFormat.swift */,
 				0D8A2E702896AE19001B2769 /* PreviewData.swift */,
 				0DF3300F28A56A3600AEF312 /* StringExt.swift */,
+				0D40378D28E6E4F500B1A341 /* ProxyHelper.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -249,8 +255,10 @@
 				0D033B26288CD64500129C9B /* V2exOSApp.swift in Sources */,
 				0D033B3E288D0FF700129C9B /* SidebarView.swift in Sources */,
 				0DF3300E28A55DEA00AEF312 /* InboxListView.swift in Sources */,
+				0D40378E28E6E4F500B1A341 /* ProxyHelper.swift in Sources */,
 				0DF3301028A56A3600AEF312 /* StringExt.swift in Sources */,
 				0D8A2E6F2896AB49001B2769 /* CommentListView.swift in Sources */,
+				0D40378C28E6E4EA00B1A341 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,7 +475,7 @@
 			repositoryURL = "https://github.com/isaced/V2exAPI.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.2;
+				minimumVersion = 1.0.3;
 			};
 		};
 		0D8F3351288D243A00C27AF1 /* XCRemoteSwiftPackageReference "MarkdownUI" */ = {

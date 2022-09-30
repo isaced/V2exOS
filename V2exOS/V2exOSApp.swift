@@ -19,6 +19,9 @@ struct V2exOSApp: App {
       }
       .frame(minWidth: 1000, minHeight: 600)
       .environmentObject(CurrentUserStore.shared)
+      .task {
+          ProxyHelper.loadProxy()
+      }
     }
     .commands {
       CommandGroup(replacing: .help) {
@@ -28,6 +31,10 @@ struct V2exOSApp: App {
           }
         }
       }
+    }
+      
+    Settings{
+      SettingsView()
     }
   }
 }
