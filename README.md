@@ -23,11 +23,11 @@
 - [x] 深色模式
 - [ ] 热门列表
 - [ ] 收藏节点
-- [ ] 发表主题/评论（暂无 API，详见 [#4](https://github.com/isaced/V2exOS/issues/4)）
+- [ ] 发表主题/评论（[#4](https://github.com/isaced/V2exOS/issues/4)）
 
 **高级功能**
 
-- [ ] Proxy 代理
+- [ ] Proxy 代理（🔧 开发中，即将上线）
 
 ## 帮助
 
