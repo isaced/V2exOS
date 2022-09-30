@@ -57,7 +57,10 @@ struct SidebarView: View {
     .listStyle(.sidebar)
     .toolbar {
       ToolbarItemGroup {
-        Button(action:{}, label: {
+        Button(action:{
+          NSApp.keyWindow?.initialFirstResponder?.tryToPerform(
+                     #selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
+        }, label: {
           Image(systemName: "sidebar.left")
         })
       }
