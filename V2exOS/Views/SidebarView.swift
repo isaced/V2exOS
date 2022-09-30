@@ -14,6 +14,7 @@ struct SidebarView: View {
   @EnvironmentObject private var currentUser: CurrentUserStore
   
   @State var nodeList : [V2Node]?
+    @State var isLoading = true
   
   var body: some View {
     List() {
@@ -36,13 +37,21 @@ struct SidebarView: View {
       }
       
       Section(header: Text("所有节点")) {
-        if let nodeList = nodeList {
-          ForEach(nodeList) { node in
-            NavigationLink(node.title ?? "") {
-              TopicListView(nodeName: node.name)
-            }
-          }
-        }
+             if isLoading {
+                 HStack {
+                     Spacer()
+                     ProgressView()
+                     Spacer()
+                 }
+             } else {
+                 if let nodeList = nodeList {
+                   ForEach(nodeList) { node in
+                     NavigationLink(node.title ?? "") {
+                       TopicListView(nodeName: node.name)
+                     }
+                   }
+                 }
+             }
       }
     }
     .listStyle(.sidebar)
@@ -56,6 +65,7 @@ struct SidebarView: View {
     .onAppear {
       Task {
         self.nodeList = try await v2ex.nodesList()
+        self.isLoading = false
       }
     }
   }
