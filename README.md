@@ -35,7 +35,7 @@
 
 菜单： V2exOS -> Preferences （快捷键：<kbd>Command</kbd> + <kbd>,</kbd>）
 
-<img src="https://user-images.githubusercontent.com/2088605/193294617-e027d1da-8bd7-44f4-9ade-11f2cf807d81.png" height="450">
+<img src="https://user-images.githubusercontent.com/2088605/193294617-e027d1da-8bd7-44f4-9ade-11f2cf807d81.png" width="450">
 
 > 数据加载不出来有可能是需要挂代理，你懂的
 
