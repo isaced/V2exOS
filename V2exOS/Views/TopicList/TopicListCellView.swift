@@ -36,7 +36,8 @@ struct TopicListCellView: View {
           
           HStack() {
             if let username = topic.member?.username {
-              Text(username)
+              Text("")
+                .linkName(username)
               
               Text("•")
             }
