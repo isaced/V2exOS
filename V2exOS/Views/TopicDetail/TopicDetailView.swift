@@ -36,7 +36,7 @@ struct TopicDetailView: View {
           if let authorName = topic.member?.username {
             HStack(alignment: .bottom, spacing: 5) {
               Image(systemName: "person.circle")
-              Text(authorName)
+              UserName(authorName)
             }
           }
           

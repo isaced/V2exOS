@@ -46,8 +46,7 @@ struct CommentListView: View {
             VStack(alignment: .leading, spacing: 6) {
               HStack {
                 if let username = comment.member.username {
-                  Text("")
-                  .linkName(username)
+                  UserName(username)
                 }
                 
                 if let created = comment.created {
