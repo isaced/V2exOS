@@ -16,14 +16,28 @@ struct ProfileView: View {
   @State var isAccessTokenChecked: Bool? = nil
   @State var isSaveTokenLoading = false
   
+  @State private var showingPopover = false
+  
   var body: some View {
     
-    Group {
+    VStack {
+      
+      Spacer()
+      
       if let _ = currentUser.accessToken {
         profile
       }else{
         loginView
       }
+      
+      Spacer()
+      
+      Link(destination: URL(string: "https://github.com/isaced/V2exOS")!) {
+        Text("github.com/isaced/V2exOS")
+          .underline()
+          .padding(20)
+      }
+      
     }
     .navigationTitle("用户")
     .toolbar {
@@ -56,6 +70,26 @@ struct ProfileView: View {
       HStack {
         TextField("Personal Access Token", text: $accessToken, prompt: Text("00000000-0000-0000-0000-000000000000"))
           .frame(width: 450)
+        
+        Button {
+          showingPopover.toggle()
+        } label: {
+          Image(systemName: "questionmark.circle")
+        }
+        .buttonStyle(PlainButtonStyle())
+        .popover(isPresented: $showingPopover) {
+          Link(destination: URL(string: "https://v2ex.com/settings/tokens")!) {
+            Text("请前往 v2ex.com/settings/tokens 生成")
+          }
+          .padding()
+          .onHover { inside in
+            if inside {
+              NSCursor.pointingHand.push()
+            } else {
+              NSCursor.pop()
+            }
+          }
+        }
         
         if isSaveTokenLoading {
           
@@ -108,7 +142,7 @@ struct ProfileView: View {
 struct ProfileView_Previews: PreviewProvider {
   static var previews: some View {
     ProfileView()
-      .frame(width: 400.0, height: 400.0)
+    
       .environmentObject(CurrentUserStore())
   }
 }
