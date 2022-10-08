@@ -58,6 +58,12 @@ struct CommentListView: View {
               Markdown(
                 comment.content
                   .replacingOccurrences(
+                    of: #"https?.*"#,
+                    with: "[$0]($0)",
+                    options: .regularExpression,
+                    range: nil
+                  )
+                  .replacingOccurrences(
                     of: #"@(\w+)"#,
                     with: "[$0](https://www.v2ex.com/member/$1)",
                     options: .regularExpression,
