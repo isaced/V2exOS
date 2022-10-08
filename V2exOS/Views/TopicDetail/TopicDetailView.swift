@@ -46,6 +46,10 @@ struct TopicDetailView: View {
               Text(Date(timeIntervalSince1970: TimeInterval(created)).fromNow())
             }
           }
+          Link(destination: URL(string: "https://www.v2ex.com/t/\(topic.id)")!) {
+            Image(systemName: "safari")
+            Text("在网页中打开")
+          }
           
         }.foregroundColor(Color(NSColor.secondaryLabelColor))
         
