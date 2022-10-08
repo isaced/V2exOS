@@ -55,8 +55,16 @@ struct CommentListView: View {
               }
               .foregroundColor(Color(NSColor.tertiaryLabelColor))
               
-              Markdown(comment.content)
-                .font(.body)
+              Markdown(
+                comment.content
+                  .replacingOccurrences(
+                    of: #"@(\w+)"#,
+                    with: "[$0](https://www.v2ex.com/member/$1)",
+                    options: .regularExpression,
+                    range: nil
+                  )
+              )
+              .font(.body)
             }
           }
         }
