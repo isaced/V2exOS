@@ -32,7 +32,7 @@ struct TopicListView: View {
               TopicListCellView(topic: topic)
             }
             
-            if topics.count > 0 && nodeName != "ALL" {
+            if topics.count > 0 && nodeName != "ALL" && nodeName != "HOT" {
               ProgressView()
                 .onAppear {
                   Task {
@@ -76,6 +76,8 @@ struct TopicListView: View {
       
       if nodeName == "ALL" {
         topics = try await v2ex.latestTopics()
+      }else if nodeName == "HOT" {
+        topics = try await v2ex.hotTopics()
       }else{
         topics = try await v2ex.topics(nodeName: nodeName, page: page)?.result
         _node =  try await v2ex.nodesShow(name: nodeName)

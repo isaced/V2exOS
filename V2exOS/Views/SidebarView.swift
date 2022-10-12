@@ -23,6 +23,9 @@ struct SidebarView: View {
         NavigationLink(destination: TopicListView(nodeName: "ALL")) {
           Label("全部", systemImage: "chart.bar")
         }
+        NavigationLink(destination: TopicListView(nodeName: "HOT")) {
+          Label("热门", systemImage: "flame")
+        }
       }
       
       Section(header: Text("账户")) {
