@@ -32,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/onevcat/Kingfisher",
       "state" : {
-        "revision" : "be1a1acb283a702b99b630f586877ba02234b4cb",
-        "version" : "7.3.2"
+        "revision" : "017f94ccfdacabb1ae7f45b75b4217b24c06e6ac",
+        "version" : "7.4.0"
       }
     },
     {
@@ -64,21 +64,12 @@
       }
     },
     {
-      "identity" : "v2exapi",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/isaced/V2exAPI.git",
-      "state" : {
-        "revision" : "ecf06e3c479d87553aa14deed62b3469eb80b5ca",
-        "version" : "1.0.3"
-      }
-    },
-    {
       "identity" : "xctest-dynamic-overlay",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/pointfreeco/xctest-dynamic-overlay",
       "state" : {
-        "revision" : "30314f1ece684dd60679d598a9b89107557b67d9",
-        "version" : "0.4.1"
+        "revision" : "16e6409ee82e1b81390bdffbf217b9c08ab32784",
+        "version" : "0.5.0"
       }
     }
   ],

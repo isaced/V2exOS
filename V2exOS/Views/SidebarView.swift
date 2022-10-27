@@ -14,14 +14,17 @@ struct SidebarView: View {
   @EnvironmentObject private var currentUser: CurrentUserStore
   
   @State var nodeList : [V2Node]?
-    @State var isLoading = true
+  @State var isLoading = true
   
   var body: some View {
     List() {
       
       Section(header: Text("Home")) {
+        NavigationLink(destination: TopicListView(nodeName: "HOT")) {
+          Label("最热", systemImage: "flame")
+        }
         NavigationLink(destination: TopicListView(nodeName: "ALL")) {
-          Label("全部", systemImage: "chart.bar")
+          Label("最新", systemImage: "chart.bar")
         }
       }
       
