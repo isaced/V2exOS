@@ -13,6 +13,7 @@
 		0D033B3E288D0FF700129C9B /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D033B3D288D0FF700129C9B /* SidebarView.swift */; };
 		0D033B40288D140C00129C9B /* TopicListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D033B3F288D140C00129C9B /* TopicListView.swift */; };
 		0D033B42288D15CF00129C9B /* TopicDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D033B41288D15CF00129C9B /* TopicDetailView.swift */; };
+		0D12614A28A94AA3009DBCE2 /* V2exAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 0D12614928A94AA3009DBCE2 /* V2exAPI */; };
 		0D139DE228E7E06C00E4CF88 /* UserName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D139DE128E7E06C00E4CF88 /* UserName.swift */; };
 		0D40378C28E6E4EA00B1A341 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D40378B28E6E4EA00B1A341 /* SettingsView.swift */; };
 		0D40378E28E6E4F500B1A341 /* ProxyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D40378D28E6E4F500B1A341 /* ProxyHelper.swift */; };
@@ -27,7 +28,6 @@
 		0DA3F3A728A412FE00E7224D /* CurrentUserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA3F3A628A412FE00E7224D /* CurrentUserStore.swift */; };
 		0DF3300E28A55DEA00AEF312 /* InboxListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF3300D28A55DEA00AEF312 /* InboxListView.swift */; };
 		0DF3301028A56A3600AEF312 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF3300F28A56A3600AEF312 /* StringExt.swift */; };
-		109A0137290A8A7400CFE602 /* V2exAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 109A0136290A8A7400CFE602 /* V2exAPI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,7 +51,6 @@
 		0DA4235228E3585C005BD63F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0DF3300D28A55DEA00AEF312 /* InboxListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxListView.swift; sourceTree = "<group>"; };
 		0DF3300F28A56A3600AEF312 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
-		109A0135290A875700CFE602 /* V2exAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = V2exAPI; path = ../V2exAPI; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +60,7 @@
 			files = (
 				0DA3F3A428A411ED00E7224D /* KeychainAccess in Frameworks */,
 				0D8F3356288D245300C27AF1 /* Kingfisher in Frameworks */,
-				109A0137290A8A7400CFE602 /* V2exAPI in Frameworks */,
+				0D12614A28A94AA3009DBCE2 /* V2exAPI in Frameworks */,
 				0D8F3353288D243A00C27AF1 /* MarkdownUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,7 +71,6 @@
 		0D033B19288CD64500129C9B = {
 			isa = PBXGroup;
 			children = (
-				109A0134290A875700CFE602 /* Packages */,
 				0D033B24288CD64500129C9B /* V2exOS */,
 				0D033B23288CD64500129C9B /* Products */,
 				0D033B43288D162400129C9B /* Frameworks */,
@@ -176,14 +174,6 @@
 			path = TopicList;
 			sourceTree = "<group>";
 		};
-		109A0134290A875700CFE602 /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-				109A0135290A875700CFE602 /* V2exAPI */,
-			);
-			name = Packages;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -204,7 +194,7 @@
 				0D8F3352288D243A00C27AF1 /* MarkdownUI */,
 				0D8F3355288D245300C27AF1 /* Kingfisher */,
 				0DA3F3A328A411ED00E7224D /* KeychainAccess */,
-				109A0136290A8A7400CFE602 /* V2exAPI */,
+				0D12614928A94AA3009DBCE2 /* V2exAPI */,
 			);
 			productName = V2exOS;
 			productReference = 0D033B22288CD64500129C9B /* V2exOS.app */;
@@ -238,6 +228,7 @@
 				0D8F3351288D243A00C27AF1 /* XCRemoteSwiftPackageReference "MarkdownUI" */,
 				0D8F3354288D245300C27AF1 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				0DA3F3A228A411ED00E7224D /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				0D12614828A94963009DBCE2 /* XCRemoteSwiftPackageReference "V2exAPI" */,
 			);
 			productRefGroup = 0D033B23288CD64500129C9B /* Products */;
 			projectDirPath = "";
@@ -410,13 +401,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = V2exOS/V2exOS.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
-				CODE_SIGN_STYLE = Manual;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"V2exOS/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = S4XH6LVQ6A;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -444,13 +435,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = V2exOS/V2exOS.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
-				CODE_SIGN_STYLE = Manual;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"V2exOS/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = S4XH6LVQ6A;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -495,6 +486,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0D12614828A94963009DBCE2 /* XCRemoteSwiftPackageReference "V2exAPI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/isaced/V2exAPI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.3;
+			};
+		};
 		0D8F3351288D243A00C27AF1 /* XCRemoteSwiftPackageReference "MarkdownUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/gonzalezreal/MarkdownUI";
@@ -522,6 +521,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0D12614928A94AA3009DBCE2 /* V2exAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0D12614828A94963009DBCE2 /* XCRemoteSwiftPackageReference "V2exAPI" */;
+			productName = V2exAPI;
+		};
 		0D8F3352288D243A00C27AF1 /* MarkdownUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0D8F3351288D243A00C27AF1 /* XCRemoteSwiftPackageReference "MarkdownUI" */;
@@ -536,10 +540,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0DA3F3A228A411ED00E7224D /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
-		};
-		109A0136290A8A7400CFE602 /* V2exAPI */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = V2exAPI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
