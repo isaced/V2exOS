@@ -12,7 +12,6 @@ import Kingfisher
 struct TopicListView: View {
   
   var nodeName: String
-//  var node: V2Node?
   
   @State var isLoading = true
   @State var topics: [V2Topic]?
@@ -33,12 +32,16 @@ struct TopicListView: View {
             }
             
             if topics.count > 0 && nodeName != "ALL" && nodeName != "HOT" {
-              ProgressView()
-                .onAppear {
-                  Task {
-                    await self.loadData(page: self.page + 1)
+              HStack {
+                Spacer()
+                ProgressView()
+                  .onAppear {
+                    Task {
+                      await self.loadData(page: self.page + 1)
+                    }
                   }
-                }
+                Spacer()
+              }
             }
           }
           

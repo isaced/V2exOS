@@ -10,10 +10,17 @@ import V2exAPI
 import Kingfisher
 
 struct TopicListCellView: View {
+  @State var isMemberLoading = false
   
   @Environment(\.colorScheme) var colorScheme
   
   let topic : V2Topic
+  @State var member : V2Member?
+  
+  init(topic: V2Topic) {
+    self.topic = topic
+    self.isMemberLoading = topic.member == nil
+  }
   
   var body: some View {
     NavigationLink {
@@ -21,26 +28,30 @@ struct TopicListCellView: View {
     } label: {
       
       HStack {
-        if let avatarUrl = topic.member?.avatarLarge {
-          KFImage.url(URL(string: avatarUrl))
-            .resizable()
-            .fade(duration: 0.25)
-            .scaledToFit()
-            .frame(width: 48, height: 48)
-            .mask(RoundedRectangle(cornerRadius: 8))
+        
+        if !isMemberLoading {
+          let user = topic.member ?? member
+          if let avatarUrl = user?.avatarLarge {
+            KFImage.url(URL(string: avatarUrl))
+              .resizable()
+              .fade(duration: 0.25)
+              .scaledToFit()
+              .frame(width: 48, height: 48)
+              .mask(RoundedRectangle(cornerRadius: 8))
+          }
         }
+        
         VStack(alignment: .leading, spacing: 6) {
           
           Text(topic.title ?? "")
             .lineLimit(2)
           
           HStack() {
-            if let username = topic.member?.username {
+            
+            if let username = topic.member?.username ?? topic.lastReplyBy {
               UserName(username)
-              
               Text("•")
             }
-            
             
             if let lastModified = topic.lastModified {
               Text(Date.init(timeIntervalSince1970: TimeInterval(lastModified)).fromNow())
@@ -60,6 +71,12 @@ struct TopicListCellView: View {
         
       }
       .foregroundColor(Color(NSColor.labelColor))
+      .task {
+        if let name = topic.lastReplyBy {
+          member = try? await v2ex.memberShow(username: name)
+          isMemberLoading = member == nil
+        }
+      }
     }
   }
 }
