@@ -28,18 +28,17 @@ struct TopicListCellView: View {
     } label: {
       
       HStack {
-        
-        if !isMemberLoading {
-          let user = topic.member ?? member
-          if let avatarUrl = user?.avatarLarge {
-            KFImage.url(URL(string: avatarUrl))
-              .resizable()
-              .fade(duration: 0.25)
-              .scaledToFit()
-              .frame(width: 48, height: 48)
-              .mask(RoundedRectangle(cornerRadius: 8))
-          }
-        }
+          
+        let avatarUrl = (topic.member ?? member)?.avatarLarge
+
+        KFImage.url(URL(string: avatarUrl ?? ""))
+          .resizable()
+          .fade(duration: 0.25)
+          .scaledToFit()
+          .background(.gray)
+          .frame(width: 48, height: 48)
+          .mask(RoundedRectangle(cornerRadius: 8))
+          
         
         VStack(alignment: .leading, spacing: 6) {
           
