@@ -21,7 +21,8 @@ struct CommentListView: View {
         Label("\(commentCount ?? 0) 条回复", systemImage: "bubble.middle.bottom.fill")
         
         if let commentList {
-            ForEach(commentList) { comment in
+            ForEach(0..<commentList.count, id: \.self) { index in
+                let comment = commentList[index]
                 
                 Divider()
                 
@@ -44,6 +45,10 @@ struct CommentListView: View {
                             if let created = comment.created {
                                 Text(Date(timeIntervalSince1970: TimeInterval(created)).fromNow())
                             }
+                            
+                            Spacer()
+                            
+                            Text("#\(index)")
                         }
                         .foregroundColor(Color(NSColor.tertiaryLabelColor))
                         
@@ -65,7 +70,7 @@ struct CommentListView: View {
                         .font(.body)
                     }
                 }
-            }   
+            }
         }
     }
 }
