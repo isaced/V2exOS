@@ -17,11 +17,11 @@ struct TopicDetailView: View {
   
   @State var commentList: [V2Comment]?
   @State var page = 0
-  @State var commenEnd = false
+  @State var commentEnd = false
   @State var isCommentLoading = false
   
-  func hasCommen() -> Bool {
-    return currentUser.user != nil && (commenEnd || commentList?.count ?? 0 < topic.replies ?? 0)
+  func hasMoreComments() -> Bool {
+    return currentUser.user != nil && (commentEnd || commentList?.count ?? 0 < topic.replies ?? 0)
   }
   
   var body: some View {
@@ -64,12 +64,16 @@ struct TopicDetailView: View {
       
       CommentListView(commentCount: topic.replies, commentList: commentList)
       
-      if hasCommen() {
+      if hasMoreComments() {
         Spacer()
-        ProgressView()
-          .onAppear {
-            loadComments(page: page + 1)
-          }
+        HStack {
+          Spacer()
+          ProgressView()
+            .onAppear {
+              loadComments(page: page + 1)
+            }
+          Spacer()
+        }
       }
     }
     .foregroundColor(Color(NSColor.labelColor))
@@ -92,7 +96,7 @@ struct TopicDetailView: View {
           commentList = res?.result
         }else{
           if let list = res?.result {
-            if !hasCommen() {
+            if !hasMoreComments() {
               isCommentLoading = false
               return
             }
@@ -100,12 +104,12 @@ struct TopicDetailView: View {
             commentList?.append(contentsOf: list)
             // 到底了
             if list.count == 0 {
-              commenEnd = true
+              commentEnd = true
             }
           }
         }
       } catch {
-        commenEnd = true
+        commentEnd = true
         print(error)
       }
       

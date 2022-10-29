@@ -12,7 +12,6 @@ import Kingfisher
 struct TopicListView: View {
   
   var nodeName: String
-  var node: V2Node?
   
   @State var isLoading = true
   @State var topics: [V2Topic]?
@@ -32,13 +31,17 @@ struct TopicListView: View {
               TopicListCellView(topic: topic)
             }
             
-            if topics.count > 0 && nodeName != "ALL" {
-              ProgressView()
-                .onAppear {
-                  Task {
-                    await self.loadData(page: self.page + 1)
+            if topics.count > 0 && nodeName != "ALL" && nodeName != "HOT" {
+              HStack {
+                Spacer()
+                ProgressView()
+                  .onAppear {
+                    Task {
+                      await self.loadData(page: self.page + 1)
+                    }
                   }
-                }
+                Spacer()
+              }
             }
           }
           
@@ -76,14 +79,17 @@ struct TopicListView: View {
       
       if nodeName == "ALL" {
         topics = try await v2ex.latestTopics()
-      }else{
+      } else if nodeName == "HOT" {
+        topics = try await v2ex.hotTopics()
+        
+      } else {
         topics = try await v2ex.topics(nodeName: nodeName, page: page)?.result
         _node =  try await v2ex.nodesShow(name: nodeName)
       }
       
       if page == 1 {
         self.topics = topics
-      }else{
+      } else {
         self.page = page
         if let topics = topics {
           self.topics?.append(contentsOf: topics)
