@@ -1,9 +1,21 @@
-# <img width="50" src="/V2exOS/Assets.xcassets/AppIcon.appiconset/icon_256.png" /> V2exOS <a href="https://apps.apple.com/cn/app/v2exos/id6443544914?mt=12"><img align="right" src="https://user-images.githubusercontent.com/2088605/192413562-5e123118-bd2c-4710-9b68-872ffe61ae4d.png" height="50"></a>
-
-一个用 SwiftUI 编写的 V2ex macOS 客户端。
+<p align="center">
+  <a href="https://apps.apple.com/cn/app/v2exos/id6443544914?mt=12">
+    <img src="/V2exOS/Assets.xcassets/AppIcon.appiconset/icon_256.png" alt="V2exOS" title="V2exOS" width="100" />
+  </a>
+  <h1 align="center">V2exOS</h1>
+  <div align="center">一个用 SwiftUI 编写的 V2ex macOS 客户端</div>
+</p>
 
 ![screenshot](https://user-images.githubusercontent.com/2088605/192312063-def16466-052b-457a-9b4c-856b2afb3a42.png#gh-dark-mode-only)
 ![screenshot](https://user-images.githubusercontent.com/2088605/192312051-9ec1e43d-4aee-46fb-a61f-fd865e35fca4.png##gh-light-mode-only)
+
+## 下载
+
+V2exOS 已经发布到 Mac App Store，可以通过下面的链接直接下载；当然你也可以从 [Release](https://github.com/isaced/V2exOS/releases) 页面下载构建好的 `.app` 包，或者自己根据源代码构建。
+
+<a href="https://apps.apple.com/cn/app/v2exos/id6443544914?mt=12">
+  <img src="https://tools.applemediaservices.com/api/badges/download-on-the-mac-app-store/white/en-US" alt="Download V2exOS on Mac App Store" height="40" />
+</a>
 
 ## 关于
 
