@@ -32,9 +32,10 @@ V2exOS 已经发布到 Mac App Store，可以通过下面的链接直接下载�
 - [x] 评论列表
 - [x] 通知列表
 - [x] 深色模式
-- [ ] 热门列表
+- [x] 节点搜索/Google搜索
+- [x] 热门列表
 - [ ] 收藏节点
-- [ ] 发表主题/评论（[#4](https://github.com/isaced/V2exOS/issues/4)）
+- [ ] 发表主题/评论（暂无 API 支持 [#4](https://github.com/isaced/V2exOS/issues/4)）
 
 **高级功能**
 
