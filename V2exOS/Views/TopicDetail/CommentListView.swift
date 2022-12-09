@@ -13,6 +13,7 @@ import Kingfisher
 struct CommentListView: View {
     
     @EnvironmentObject private var currentUser: CurrentUserStore
+    @EnvironmentObject private var settingsConfig: SettingsConfig
     
     var commentCount: Int?
     var commentList: [V2Comment]?
@@ -67,6 +68,7 @@ struct CommentListView: View {
                                     range: nil
                                 )
                         )
+                        .markdownStyle(MarkdownStyle(font: .system(size: settingsConfig.fontSize)))
                         .font(.body)
                     }
                 }

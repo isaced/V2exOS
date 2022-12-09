@@ -12,6 +12,7 @@ import MarkdownUI
 struct TopicDetailView: View {
     
     @EnvironmentObject private var currentUser: CurrentUserStore
+    @EnvironmentObject private var settingsConfig: SettingsConfig
     
     var topic: V2Topic
     
@@ -50,7 +51,7 @@ struct TopicDetailView: View {
                 Spacer()
                 
                 Markdown(topic.content ?? "")
-                    .font(.body)
+                    .markdownStyle(MarkdownStyle(font: .system(size: settingsConfig.fontSize)))
                     .fixedSize(horizontal: false, vertical: true)
             }
             

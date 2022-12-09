@@ -19,6 +19,7 @@ struct V2exOSApp: App {
             }
             .frame(minWidth: 1000, minHeight: 600)
             .environmentObject(CurrentUserStore.shared)
+            .environmentObject(SettingsConfig.shared)
             .task {
                 ProxyHelper.loadProxy()
             }
@@ -35,6 +36,7 @@ struct V2exOSApp: App {
         
         Settings{
             SettingsView()
+                .environmentObject(SettingsConfig.shared)
         }
     }
 }

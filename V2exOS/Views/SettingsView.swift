@@ -10,12 +10,29 @@ import SwiftUI
 struct SettingsView: View {
     var body: some View {
         TabView {
+            AppearanceSettingsView()
+                .tabItem {
+                    Label("外观", systemImage: "paintpalette")
+                }
             ProxySettingsView()
                 .tabItem {
                     Label("代理配置", systemImage: "globe.badge.chevron.backward")
                 }
         }
         .frame(width: 450, height: 250)
+    }
+}
+
+struct AppearanceSettingsView: View {
+    @EnvironmentObject private var SettingsConfig: SettingsConfig
+    
+    var body: some View {
+        Form {
+            Slider(value: $SettingsConfig.fontSize, in: 10.0...30.0) {
+                Text("字体大小")
+            }
+        }
+        .frame(maxWidth: 200)
     }
 }
 
