@@ -62,6 +62,7 @@
 		0D34DF8E2942FED1000A0096 /* AppearanceConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceConfig.swift; sourceTree = "<group>"; };
 		0D40378B28E6E4EA00B1A341 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		0D40378D28E6E4F500B1A341 /* ProxyHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProxyHelper.swift; sourceTree = "<group>"; };
+		0D7A1A5429880B8D00003696 /* Info_tv.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info_tv.plist; sourceTree = "<group>"; };
 		0D8A2E6E2896AB49001B2769 /* CommentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListView.swift; sourceTree = "<group>"; };
 		0D8A2E702896AE19001B2769 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		0D8F334F288D1F8800C27AF1 /* TopicListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicListCellView.swift; sourceTree = "<group>"; };
@@ -201,6 +202,7 @@
 		0DA7FA65298799B300374B3A /* V2exOSTV */ = {
 			isa = PBXGroup;
 			children = (
+				0D7A1A5429880B8D00003696 /* Info_tv.plist */,
 				0DA7FA7629879A9100374B3A /* Views */,
 				0DA7FA66298799B300374B3A /* V2exOSTVApp.swift */,
 				0DA7FA6A298799B400374B3A /* Assets.xcassets */,
@@ -301,7 +303,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1400;
+				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					0D033B21288CD64500129C9B = {
 						CreatedOnToolsVersion = 13.4.1;
@@ -463,7 +465,7 @@
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TVOS_DEPLOYMENT_TARGET = 16.0;
+				TVOS_DEPLOYMENT_TARGET = 15.0;
 			};
 			name = Debug;
 		};
@@ -519,7 +521,7 @@
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				TVOS_DEPLOYMENT_TARGET = 16.0;
+				TVOS_DEPLOYMENT_TARGET = 15.0;
 			};
 			name = Release;
 		};
@@ -606,6 +608,7 @@
 				DEVELOPMENT_TEAM = S4XH6LVQ6A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = V2exOSTV/Info_tv.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = V2exOS;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -639,6 +642,7 @@
 				DEVELOPMENT_TEAM = S4XH6LVQ6A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = V2exOSTV/Info_tv.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = V2exOS;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
