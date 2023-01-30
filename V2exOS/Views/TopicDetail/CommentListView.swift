@@ -12,7 +12,6 @@ import Kingfisher
 
 struct CommentListView: View {
     
-    @EnvironmentObject private var currentUser: CurrentUserStore
     @EnvironmentObject private var settingsConfig: SettingsConfig
     
     var commentCount: Int?
@@ -20,57 +19,70 @@ struct CommentListView: View {
     
     var body: some View {
         Label("\(commentCount ?? 0) 条回复", systemImage: "bubble.middle.bottom.fill")
+#if os(tvOS)
+                    .focusable()
+#endif
         
         if let commentList {
-            ForEach(0..<commentList.count, id: \.self) { index in
-                let comment = commentList[index]
-                
-                Divider()
-                
-                HStack(alignment: .top) {
-                    if let avatarUrl = comment.member.avatarLarge {
-                        KFImage.url(URL(string: avatarUrl))
-                            .resizable()
-                            .fade(duration: 0.25)
-                            .scaledToFit()
-                            .frame(width: 40, height: 40)
-                            .mask(RoundedRectangle(cornerRadius: 4))
-                    }
+            LazyVStack {
+                ForEach(0..<commentList.count, id: \.self) { index in
+                    let comment = commentList[index]
                     
-                    VStack(alignment: .leading, spacing: 6) {
-                        HStack {
-                            if let username = comment.member.username {
-                                UserName(username)
-                            }
-                            
-                            if let created = comment.created {
-                                Text(Date(timeIntervalSince1970: TimeInterval(created)).fromNow())
-                            }
-                            
-                            Spacer()
-                            
-                            Text("#\(index)")
+                    Divider()
+                    
+                    HStack(alignment: .top) {
+                        if let avatarUrl = comment.member.avatarLarge {
+                            KFImage.url(URL(string: avatarUrl))
+                                .resizable()
+                                .fade(duration: 0.25)
+                                .scaledToFit()
+#if os(tvOS)
+                                .frame(width: 80, height: 80)
+#else
+                                .frame(width: 40, height: 40)
+#endif
+                                .mask(RoundedRectangle(cornerRadius: 4))
                         }
-                        .foregroundColor(Color(NSColor.tertiaryLabelColor))
                         
-                        Markdown(
-                            comment.content
-                                .replacingOccurrences(
-                                    of: #"https?.*"#,
-                                    with: "[$0]($0)",
-                                    options: .regularExpression,
-                                    range: nil
-                                )
-                                .replacingOccurrences(
-                                    of: #"@(\w+)"#,
-                                    with: "[$0](https://www.v2ex.com/member/$1)",
-                                    options: .regularExpression,
-                                    range: nil
-                                )
-                        )
-                        .markdownStyle(MarkdownStyle(font: .system(size: settingsConfig.fontSize)))
-                        .font(.body)
+                        VStack(alignment: .leading, spacing: 6) {
+                            HStack {
+                                if let username = comment.member.username {
+                                    UserName(username)
+                                }
+                                
+                                if let created = comment.created {
+                                    Text(Date(timeIntervalSince1970: TimeInterval(created)).fromNow())
+                                }
+                                
+                                Spacer()
+                                
+                                Text("#\(index)")
+                            }
+                            .foregroundColor(.secondary)
+                            
+                            Markdown(
+                                comment.content
+                                    .replacingOccurrences(
+                                        of: #"https?.*"#,
+                                        with: "[$0]($0)",
+                                        options: .regularExpression,
+                                        range: nil
+                                    )
+                                    .replacingOccurrences(
+                                        of: #"@(\w+)"#,
+                                        with: "[$0](https://www.v2ex.com/member/$1)",
+                                        options: .regularExpression,
+                                        range: nil
+                                    )
+                            )
+#if !os(tvOS)
+                            .markdownStyle(MarkdownStyle(font: .system(size: settingsConfig.fontSize)))
+#endif
+                        }
                     }
+#if os(tvOS)
+                    .focusable()
+#endif
                 }
             }
         }

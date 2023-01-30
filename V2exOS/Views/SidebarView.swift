@@ -32,10 +32,10 @@ struct SidebarView: View {
             List() {
                 
                 Section(header: Text("Home")) {
-                    NavigationLink(destination: TopicListView(nodeName: "HOT")) {
+                    NavigationLink(destination: TopicListView(nodeName: NodeNameHot)) {
                         Label("最热", systemImage: "flame")
                     }
-                    NavigationLink(destination: TopicListView(nodeName: "ALL")) {
+                    NavigationLink(destination: TopicListView(nodeName: NodeNameAll)) {
                         Label("最新", systemImage: "chart.bar")
                     }
                 }

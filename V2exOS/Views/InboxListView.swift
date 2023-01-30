@@ -7,7 +7,6 @@
 
 import SwiftUI
 import V2exAPI
-import MarkdownUI
 
 struct InboxListView: View {
     

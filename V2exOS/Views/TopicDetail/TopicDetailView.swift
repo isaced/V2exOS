@@ -11,7 +11,6 @@ import MarkdownUI
 
 struct TopicDetailView: View {
     
-    @EnvironmentObject private var currentUser: CurrentUserStore
     @EnvironmentObject private var settingsConfig: SettingsConfig
     
     var topic: V2Topic
@@ -25,6 +24,9 @@ struct TopicDetailView: View {
                 Text(topic.title ?? "" )
                     .font(.title)
                     .lineLimit(3)
+#if os(tvOS)
+                    .focusable()
+#endif
                 
                 HStack(alignment: .bottom, spacing: 20) {
                     
@@ -41,18 +43,27 @@ struct TopicDetailView: View {
                             Text(Date(timeIntervalSince1970: TimeInterval(created)).fromNow())
                         }
                     }
+#if !os(tvOS)
                     Link(destination: URL(string: "https://www.v2ex.com/t/\(topic.id)")!) {
                         Image(systemName: "safari")
                         Text("在网页中打开")
                     }
+#endif
                     
-                }.foregroundColor(Color(NSColor.secondaryLabelColor))
+                }
+                .foregroundColor(.secondary)
                 
                 Spacer()
                 
                 Markdown(topic.content ?? "")
+#if !os(tvOS)
                     .markdownStyle(MarkdownStyle(font: .system(size: settingsConfig.fontSize)))
+#endif
+#if os(tvOS)
+                    .focusable()
+#endif
                     .fixedSize(horizontal: false, vertical: true)
+                
             }
             
             Spacer()
@@ -68,7 +79,6 @@ struct TopicDetailView: View {
                 }
             }
         }
-        .foregroundColor(Color(NSColor.labelColor))
         .task {
             loadComments(page: 1)
         }

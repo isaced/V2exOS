@@ -17,6 +17,7 @@ struct UserName: View {
     }
     
     var body: some View {
+#if os(macOS)
         Button {
             if let url = URL(string: "https://www.v2ex.com/member/\(username)") {
                 NSWorkspace.shared.open(url)
@@ -34,6 +35,13 @@ struct UserName: View {
                 }
         }
         .buttonStyle(PlainButtonStyle())
+#elseif os(tvOS)
+        Text(username)
+            .foregroundColor(.secondary)
+            .fontWeight(.bold)
+#else
+        EmptyView()
+#endif
     }
 }
 

@@ -31,7 +31,7 @@ struct TopicListView: View {
                             TopicListCellView(topic: topic)
                         }
                         
-                        if topics.count > 0 && nodeName != "ALL" && nodeName != "HOT" {
+                        if topics.count > 0 && nodeName != NodeNameAll && nodeName != NodeNameHot {
                             HStack {
                                 Spacer()
                                 ProgressView()
@@ -77,9 +77,9 @@ struct TopicListView: View {
         do {
             var topics : [V2Topic]? = nil
             
-            if nodeName == "ALL" {
+            if nodeName == NodeNameAll {
                 topics = try await v2ex.latestTopics()
-            } else if nodeName == "HOT" {
+            } else if nodeName == NodeNameHot {
                 topics = try await v2ex.hotTopics()
                 
             } else {
