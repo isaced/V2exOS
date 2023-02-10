@@ -55,7 +55,9 @@ struct TopicListView: View {
             await loadData()
         }
         .navigationTitle(_node?.title ?? "V2exOS")
+#if os(macOS)
         .navigationSubtitle(_node?.header ?? "")
+#endif
         .toolbar {
             KFImage.url(URL(string: _node?.avatarNormal ?? ""))
                 .resizable()

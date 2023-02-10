@@ -55,6 +55,15 @@
       }
     },
     {
+      "identity" : "pagertabstripview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/xmartlabs/PagerTabStripView.git",
+      "state" : {
+        "revision" : "39ec00d2577adf75d82d1c7023c56950b96d2298",
+        "version" : "4.0.0"
+      }
+    },
+    {
       "identity" : "swiftcommonmark",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/gonzalezreal/SwiftCommonMark",

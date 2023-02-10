@@ -69,7 +69,9 @@ struct TopicListCellView: View {
                 }
                 
             }
+#if os(macOS)
             .foregroundColor(Color(NSColor.labelColor))
+#endif
             .task {
                 if let name = topic.lastReplyBy {
                     member = try? await v2ex.memberShow(username: name)
