@@ -37,6 +37,11 @@ struct HomeView: View {
                             TitleNavBarItem(title: title)
                         }
                 }
+                
+                NodeListView()
+                    .pagerTabItem(tag: 9999) {
+                        TitleNavBarItem(title: "其他版块")
+                    }
             }
             .pagerTabStripViewStyle(.scrollableBarButton(tabItemSpacing: 20))
             .toolbar(.hidden, for: .automatic)

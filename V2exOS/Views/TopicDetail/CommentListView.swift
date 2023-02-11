@@ -20,6 +20,9 @@ struct CommentListView: View {
     var body: some View {
         Label("\(commentCount ?? 0) 条回复", systemImage: "bubble.middle.bottom.fill")
             .foregroundColor(.secondary)
+#if os(iOS)
+        .listRowSeparator(.hidden)
+#endif
 #if os(tvOS)
             .focusable()
 #endif

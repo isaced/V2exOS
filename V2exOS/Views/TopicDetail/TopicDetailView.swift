@@ -68,18 +68,22 @@ struct TopicDetailView: View {
                     .fixedSize(horizontal: false, vertical: true)
                 
             }
-            
+#if os(iOS)
+            .listRowSeparator(.hidden)
+#endif
             Spacer()
             
             CommentListView(commentCount: topic.replies, commentList: commentList)
             
             if isCommentLoading {
-                Spacer()
                 HStack {
                     Spacer()
                     ProgressView()
                     Spacer()
                 }
+#if os(iOS)   
+                .listRowSeparator(.hidden)
+#endif
             }
         }
 #if os(iOS)

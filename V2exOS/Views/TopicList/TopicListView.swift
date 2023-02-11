@@ -55,6 +55,9 @@ struct TopicListView: View {
             await loadData()
         }
         .navigationTitle(_node?.title ?? "V2exOS")
+#if os(iOS)
+        .navigationViewStyle(.stack)
+#endif
 #if os(macOS)
         .navigationSubtitle(_node?.header ?? "")
 #endif
