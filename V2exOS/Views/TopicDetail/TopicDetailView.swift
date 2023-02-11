@@ -45,8 +45,11 @@ struct TopicDetailView: View {
                     }
 #if !os(tvOS)
                     Link(destination: URL(string: "https://www.v2ex.com/t/\(topic.id)")!) {
-                        Image(systemName: "safari")
-                        Text("在网页中打开")
+                        
+                        HStack(alignment: .bottom, spacing: 5) {
+                            Image(systemName: "safari")
+                            Text("在浏览器中打开")
+                        }
                     }
 #endif
                     
@@ -56,7 +59,7 @@ struct TopicDetailView: View {
                 Spacer()
                 
                 Markdown(topic.content ?? "")
-#if !os(tvOS)
+#if os(macOS)
                     .markdownStyle(MarkdownStyle(font: .system(size: settingsConfig.fontSize)))
 #endif
 #if os(tvOS)
@@ -79,6 +82,9 @@ struct TopicDetailView: View {
                 }
             }
         }
+#if os(iOS)
+        .listStyle(.plain)
+#endif
         .task {
             loadComments(page: 1)
         }
@@ -106,6 +112,7 @@ struct TopicDetailView_Previews: PreviewProvider {
                             PreviewData.comment,
                             PreviewData.comment
                         ])
+        .environmentObject(SettingsConfig.shared)
         .previewLayout(.fixed(width: 300, height: .infinity))
     }
 }

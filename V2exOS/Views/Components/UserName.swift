@@ -17,15 +17,22 @@ struct UserName: View {
     }
     
     var body: some View {
-#if os(macOS)
+#if os(macOS) || os(iOS)
         Button {
             if let url = URL(string: "https://www.v2ex.com/member/\(username)") {
+                
+#if os(iOS)
+                UIApplication.shared.open(url)
+#endif
+#if os(macOS)
                 NSWorkspace.shared.open(url)
+#endif
             }
         } label: {
             Text(username)
                 .foregroundColor(.secondary)
-                .fontWeight(.bold)
+            //                .fontWeight(.bold)
+#if os(macOS)
                 .onHover { inside in
                     if inside {
                         NSCursor.pointingHand.push()
@@ -33,6 +40,7 @@ struct UserName: View {
                         NSCursor.pop()
                     }
                 }
+#endif
         }
         .buttonStyle(PlainButtonStyle())
 #elseif os(tvOS)

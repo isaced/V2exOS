@@ -19,8 +19,9 @@ struct CommentListView: View {
     
     var body: some View {
         Label("\(commentCount ?? 0) 条回复", systemImage: "bubble.middle.bottom.fill")
+            .foregroundColor(.secondary)
 #if os(tvOS)
-                    .focusable()
+            .focusable()
 #endif
         
         if let commentList {
@@ -75,7 +76,7 @@ struct CommentListView: View {
                                         range: nil
                                     )
                             )
-#if !os(tvOS)
+#if os(macOS)
                             .markdownStyle(MarkdownStyle(font: .system(size: settingsConfig.fontSize)))
 #endif
                         }
