@@ -24,6 +24,12 @@ struct TopicDetailView: View {
                 Text(topic.title ?? "" )
                     .font(.title)
                     .lineLimit(3)
+#if os(macOS)
+                    .foregroundColor(Color(.labelColor))
+#endif
+#if os(iOS)
+                    .foregroundColor(Color(.label))
+#endif
 #if os(tvOS)
                     .focusable()
 #endif

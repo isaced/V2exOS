@@ -35,6 +35,11 @@
 		0D34DF8F2942FED1000A0096 /* AppearanceConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D34DF8E2942FED1000A0096 /* AppearanceConfig.swift */; };
 		0D40378C28E6E4EA00B1A341 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D40378B28E6E4EA00B1A341 /* SettingsView.swift */; };
 		0D40378E28E6E4F500B1A341 /* ProxyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D40378D28E6E4F500B1A341 /* ProxyHelper.swift */; };
+		0D5555F92997B6B100A8B9FD /* ViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5555F82997B6B100A8B9FD /* ViewExt.swift */; };
+		0D5555FA2997B6B100A8B9FD /* ViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5555F82997B6B100A8B9FD /* ViewExt.swift */; };
+		0D5555FB2997B6B100A8B9FD /* ViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5555F82997B6B100A8B9FD /* ViewExt.swift */; };
+		0D5555FC2997C1C500A8B9FD /* CurrentUserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA3F3A628A412FE00E7224D /* CurrentUserStore.swift */; };
+		0D5555FF2997C1FF00A8B9FD /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 0D5555FE2997C1FF00A8B9FD /* KeychainAccess */; };
 		0D7EF06F299736C800E77A0C /* NodeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7EF06E299736C800E77A0C /* NodeListView.swift */; };
 		0D8A2E6F2896AB49001B2769 /* CommentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8A2E6E2896AB49001B2769 /* CommentListView.swift */; };
 		0D8A2E712896AE19001B2769 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8A2E702896AE19001B2769 /* PreviewData.swift */; };
@@ -86,6 +91,7 @@
 		0D34DF8E2942FED1000A0096 /* AppearanceConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceConfig.swift; sourceTree = "<group>"; };
 		0D40378B28E6E4EA00B1A341 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		0D40378D28E6E4F500B1A341 /* ProxyHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProxyHelper.swift; sourceTree = "<group>"; };
+		0D5555F82997B6B100A8B9FD /* ViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExt.swift; sourceTree = "<group>"; };
 		0D7A1A5429880B8D00003696 /* Info_tv.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info_tv.plist; sourceTree = "<group>"; };
 		0D7EF06E299736C800E77A0C /* NodeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeListView.swift; sourceTree = "<group>"; };
 		0D8A2E6E2896AB49001B2769 /* CommentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListView.swift; sourceTree = "<group>"; };
@@ -127,6 +133,7 @@
 				0D2334DF299697E000DF4B73 /* PagerTabStripView in Frameworks */,
 				0D2334EA2996998500DF4B73 /* V2exAPI in Frameworks */,
 				0D2334E62996998500DF4B73 /* MarkdownUI in Frameworks */,
+				0D5555FF2997C1FF00A8B9FD /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +261,7 @@
 				0D40378D28E6E4F500B1A341 /* ProxyHelper.swift */,
 				0D34DF8E2942FED1000A0096 /* AppearanceConfig.swift */,
 				0DD2A4DC2987C57B0018C2CF /* Constants.swift */,
+				0D5555F82997B6B100A8B9FD /* ViewExt.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -358,6 +366,7 @@
 				0D2334E52996998500DF4B73 /* MarkdownUI */,
 				0D2334E72996998500DF4B73 /* Kingfisher */,
 				0D2334E92996998500DF4B73 /* V2exAPI */,
+				0D5555FE2997C1FF00A8B9FD /* KeychainAccess */,
 			);
 			productName = V2exOSiOS;
 			productReference = 0D2334CE2996944500DF4B73 /* V2exOSiOS.app */;
@@ -484,6 +493,7 @@
 				0D40378E28E6E4F500B1A341 /* ProxyHelper.swift in Sources */,
 				0DF3301028A56A3600AEF312 /* StringExt.swift in Sources */,
 				0D8A2E6F2896AB49001B2769 /* CommentListView.swift in Sources */,
+				0D5555F92997B6B100A8B9FD /* ViewExt.swift in Sources */,
 				0D40378C28E6E4EA00B1A341 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -499,6 +509,8 @@
 				0D2334EF29969A3B00DF4B73 /* TimeFormat.swift in Sources */,
 				0D2334EB299699AB00DF4B73 /* TopicDetailView.swift in Sources */,
 				0D2334EE299699DD00DF4B73 /* UserName.swift in Sources */,
+				0D5555FB2997B6B100A8B9FD /* ViewExt.swift in Sources */,
+				0D5555FC2997C1C500A8B9FD /* CurrentUserStore.swift in Sources */,
 				0D2334F129969A6B00DF4B73 /* PreviewData.swift in Sources */,
 				0D2334D12996944500DF4B73 /* V2exOSiOSApp.swift in Sources */,
 				0D2334EC299699B000DF4B73 /* AppearanceConfig.swift in Sources */,
@@ -518,6 +530,7 @@
 				0DA7FA862987A76B00374B3A /* UserName.swift in Sources */,
 				0DA7FA67298799B300374B3A /* V2exOSTVApp.swift in Sources */,
 				0DA7FA822987A6DB00374B3A /* CommentListView.swift in Sources */,
+				0D5555FA2997B6B100A8B9FD /* ViewExt.swift in Sources */,
 				0DA7FA7B29879CA500374B3A /* TimeFormat.swift in Sources */,
 				0DA7FA872987A8C800374B3A /* TopicDetailView.swift in Sources */,
 				0DA7FA852987A76500374B3A /* AppearanceConfig.swift in Sources */,
@@ -904,8 +917,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/isaced/V2exAPI.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.0;
+				branch = main;
+				kind = branch;
 			};
 		};
 		0D2334DC2996972300DF4B73 /* XCRemoteSwiftPackageReference "PagerTabStripView" */ = {
@@ -967,6 +980,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0D12614828A94963009DBCE2 /* XCRemoteSwiftPackageReference "V2exAPI" */;
 			productName = V2exAPI;
+		};
+		0D5555FE2997C1FF00A8B9FD /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0DA3F3A228A411ED00E7224D /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
 		};
 		0D8F3352288D243A00C27AF1 /* MarkdownUI */ = {
 			isa = XCSwiftPackageProductDependency;

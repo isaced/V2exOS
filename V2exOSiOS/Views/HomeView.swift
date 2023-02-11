@@ -13,15 +13,10 @@ struct HomeView: View {
     let nodes = [
         ["最热", NodeNameHot],
         ["全部", NodeNameAll],
-        ["技术", "tech"],
-        ["创意", "creative"],
-        ["好玩", "play"],
-        ["Apple", "apple"],
+        ["分享创造", "create"],
+        ["分享发现", "share"],
         ["酷工作", "jobs"],
-        ["交易", "deals"],
-        ["城市", "city"],
         ["问与答", "qna"],
-        ["R2", "r2"],
     ]
     
     var body: some View {

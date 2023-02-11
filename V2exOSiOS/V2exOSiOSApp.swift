@@ -25,6 +25,8 @@ struct V2exOSiOSApp: App {
             //                    }
             //            }
                 .environmentObject(SettingsConfig.shared)
+                .environmentObject(CurrentUserStore.shared)
+            
         }
     }
 }

@@ -11,6 +11,8 @@ import Kingfisher
 
 struct TopicListView: View {
     
+    @EnvironmentObject private var currentUser: CurrentUserStore
+    
     var nodeName: String
     
     @State var isLoading = true
@@ -21,38 +23,41 @@ struct TopicListView: View {
     
     var body: some View {
         NavigationView{
-            if isLoading {
-                ProgressView()
-                    .frame(minWidth: 400)
-            }else{
-                List {
-                    if let topics = topics {
-                        ForEach(topics) { topic in
-                            TopicListCellView(topic: topic)
-                        }
-                        
-                        if topics.count > 0 && nodeName != NodeNameAll && nodeName != NodeNameHot {
-                            HStack {
-                                Spacer()
-                                ProgressView()
-                                    .onAppear {
-                                        Task {
-                                            await self.loadData(page: self.page + 1)
-                                        }
-                                    }
-                                Spacer()
-                            }
-                        }
+            
+            List {
+                if let topics = topics {
+                    ForEach(topics) { topic in
+                        TopicListCellView(topic: topic)
                     }
                     
+                    if topics.count > 0 && nodeName != NodeNameAll && nodeName != NodeNameHot {
+                        HStack {
+                            Spacer()
+                            ProgressView()
+                                .onAppear {
+                                    Task {
+                                        await self.loadData(page: self.page + 1)
+                                    }
+                                }
+                            Spacer()
+                        }
+                    }
                 }
-                .listStyle(.inset)
-                .frame(minWidth: 400, idealWidth: 500)
-                .foregroundColor(.black)
             }
-        }
-        .task {
-            await loadData()
+            .overlay {
+                if isLoading {
+                    ProgressView()
+                }
+            }
+            .listStyle(.inset)
+            .frame(minWidth: 400, idealWidth: 500)
+            .foregroundColor(.black)
+            .onFirstAppear {
+                print("onFirstAppear....")
+                Task {
+                    await loadData()
+                }
+            }
         }
         .navigationTitle(_node?.title ?? "V2exOS")
 #if os(iOS)
@@ -71,6 +76,8 @@ struct TopicListView: View {
     }
     
     func loadData(page: Int = 1) async {
+        print("TopcListView loadData... \(nodeName)")
+        
         if error != nil {
             return
         }
@@ -86,9 +93,12 @@ struct TopicListView: View {
                 topics = try await v2ex.latestTopics()
             } else if nodeName == NodeNameHot {
                 topics = try await v2ex.hotTopics()
-                
             } else {
-                topics = try await v2ex.topics(nodeName: nodeName, page: page)?.result
+                if currentUser.user == nil && (self.topics?.isEmpty ?? true) {
+                    topics = try await v2ex.topics(nodeName: nodeName)
+                } else {
+                    topics = try await v2ex.topics(nodeName: nodeName, page: page)?.result
+                }
                 _node =  try await v2ex.nodesShow(name: nodeName)
             }
             

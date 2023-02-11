@@ -33,8 +33,10 @@ struct TopicListView: View {
                 ProgressView()
             }
         }
-        .task {
-            await loadData()
+        .onFirstAppear {
+            Task {
+                await loadData()
+            }
         }
     }
     

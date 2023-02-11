@@ -105,7 +105,7 @@ struct SidebarView: View {
                     searchText = ""
                 }
             }
-            .onAppear {
+            .onFirstAppear {
                 Task {
                     self.nodeList = try await v2ex.nodesList()
                     self.isLoading = false
