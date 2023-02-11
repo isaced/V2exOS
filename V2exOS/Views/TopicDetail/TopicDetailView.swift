@@ -95,7 +95,7 @@ struct TopicDetailView: View {
 #if os(iOS)
         .listStyle(.plain)
 #endif
-        .task {
+        .onFirstAppear {
             loadComments(page: 1)
         }
     }

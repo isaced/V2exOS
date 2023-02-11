@@ -70,7 +70,10 @@ struct TopicListCellView: View {
                 
             }
 #if os(macOS)
-            .foregroundColor(Color(NSColor.labelColor))
+            .foregroundColor(Color(.labelColor))
+#endif
+#if os(iOS)
+            .foregroundColor(Color(.label))
 #endif
             .task {
                 if let name = topic.lastReplyBy {

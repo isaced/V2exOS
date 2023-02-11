@@ -50,11 +50,9 @@ struct TitleNavBarItem: View {
     var body: some View {
         VStack {
             Text(title)
-                .foregroundColor(Color.gray)
                 .font(.subheadline)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.white)
     }
 }
 
