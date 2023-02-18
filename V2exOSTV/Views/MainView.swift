@@ -9,7 +9,6 @@ import SwiftUI
 import V2exAPI
 
 struct MainView: View {
-    
     var nodeName: String
     @State private var selectedTopic: V2Topic? = nil
     
@@ -18,7 +17,6 @@ struct MainView: View {
             let halfWidth = proxy.size.width / 2.0 - 80
             
             HStack(alignment: .top) {
-                
                 TopicListView(nodeName: nodeName, selectedTopic: $selectedTopic)
                     .frame(width: halfWidth)
                 
@@ -33,7 +31,6 @@ struct MainView: View {
             }
         }
     }
-    
 }
 
 struct MainView_Previews: PreviewProvider {

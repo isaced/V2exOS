@@ -8,12 +8,12 @@
 import Foundation
 import Kingfisher
 
-enum ProxyType : Int , Codable {
+enum ProxyType: Int, Codable {
     case http
     case socks
 }
 
-struct ProxyInfo : Codable {
+struct ProxyInfo: Codable {
     var enabled: Bool
     var type: ProxyType = .http
     var host: String?
@@ -22,8 +22,7 @@ struct ProxyInfo : Codable {
     var password: String?
 }
 
-struct ProxyHelper {
-    
+enum ProxyHelper {
     static let ProxyCacheKey = "ProxyInfo"
     
     /**
@@ -43,14 +42,14 @@ struct ProxyHelper {
                 kCFNetworkProxiesHTTPProxy: proxyInfo.host ?? "",
                 kCFNetworkProxiesHTTPPort: proxyInfo.port ?? 0,
                 kCFNetworkProxiesHTTPSEnable: true,
-                kCFNetworkProxiesHTTPSProxy: proxyInfo.host ??  "",
-                kCFNetworkProxiesHTTPSPort: proxyInfo.port ??  0,
+                kCFNetworkProxiesHTTPSProxy: proxyInfo.host ?? "",
+                kCFNetworkProxiesHTTPSPort: proxyInfo.port ?? 0,
             ]
         } else if proxyInfo.type == .socks {
             sessionConfiguration.connectionProxyDictionary = [
                 kCFNetworkProxiesSOCKSEnable: true,
-                kCFNetworkProxiesSOCKSProxy: proxyInfo.host ??  "",
-                kCFNetworkProxiesSOCKSPort: proxyInfo.port ??  0,
+                kCFNetworkProxiesSOCKSProxy: proxyInfo.host ?? "",
+                kCFNetworkProxiesSOCKSPort: proxyInfo.port ?? 0,
             ]
         }
         

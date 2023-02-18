@@ -9,18 +9,16 @@ import Foundation
 import SwiftUI
 
 struct UserName: View {
-    
     var username: String
-    
+
     init(_ username: String) {
         self.username = username
     }
-    
+
     var body: some View {
 #if os(macOS) || os(iOS)
         Button {
             if let url = URL(string: "https://www.v2ex.com/member/\(username)") {
-                
 #if os(iOS)
                 UIApplication.shared.open(url)
 #endif
@@ -31,15 +29,15 @@ struct UserName: View {
         } label: {
             Text(username)
                 .foregroundColor(.secondary)
-            //                .fontWeight(.bold)
+//                .fontWeight(.bold)
 #if os(macOS)
-                .onHover { inside in
-                    if inside {
-                        NSCursor.pointingHand.push()
-                    } else {
-                        NSCursor.pop()
-                    }
-                }
+.onHover { inside in
+    if inside {
+        NSCursor.pointingHand.push()
+    } else {
+        NSCursor.pop()
+    }
+}
 #endif
         }
         .buttonStyle(PlainButtonStyle())

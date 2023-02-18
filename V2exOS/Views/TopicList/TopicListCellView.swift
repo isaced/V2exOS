@@ -5,17 +5,17 @@
 //  Created by isaced on 2022/7/24.
 //
 
+import Kingfisher
 import SwiftUI
 import V2exAPI
-import Kingfisher
 
 struct TopicListCellView: View {
     @State var isMemberLoading = false
     
     @Environment(\.colorScheme) var colorScheme
     
-    let topic : V2Topic
-    @State var member : V2Member?
+    let topic: V2Topic
+    @State var member: V2Member?
     
     init(topic: V2Topic) {
         self.topic = topic
@@ -26,9 +26,7 @@ struct TopicListCellView: View {
         NavigationLink {
             TopicDetailView(topic: topic)
         } label: {
-            
             HStack {
-                
                 let avatarUrl = (topic.member ?? member)?.avatarLarge
                 
                 KFImage.url(URL(string: avatarUrl ?? ""))
@@ -39,26 +37,22 @@ struct TopicListCellView: View {
                     .frame(width: 48, height: 48)
                     .mask(RoundedRectangle(cornerRadius: 8))
                 
-                
                 VStack(alignment: .leading, spacing: 6) {
-                    
                     Text(topic.title ?? "")
                         .lineLimit(2)
                     
-                    HStack() {
-                        
+                    HStack {
                         if let username = topic.member?.username ?? topic.lastReplyBy {
                             UserName(username)
                             Text("•")
                         }
                         
                         if let lastModified = topic.lastModified {
-                            Text(Date.init(timeIntervalSince1970: TimeInterval(lastModified)).fromNow())
+                            Text(Date(timeIntervalSince1970: TimeInterval(lastModified)).fromNow())
                         }
                     }
                     .foregroundColor(.gray)
                 }
-                
                 
                 if let replies = topic.replies {
                     Spacer()
@@ -67,14 +61,8 @@ struct TopicListCellView: View {
                         .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
                         .background(RoundedRectangle(cornerRadius: 4).fill(.gray))
                 }
-                
             }
-#if os(macOS)
-            .foregroundColor(Color(.labelColor))
-#endif
-#if os(iOS)
-            .foregroundColor(Color(.label))
-#endif
+            .foregroundColor(.label)
             .task {
                 if let name = topic.lastReplyBy {
                     member = try? await v2ex.memberShow(username: name)

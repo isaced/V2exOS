@@ -28,7 +28,7 @@ struct AppearanceSettingsView: View {
     
     var body: some View {
         Form {
-            Slider(value: $SettingsConfig.fontSize, in: 10.0...30.0) {
+            Slider(value: $SettingsConfig.fontSize, in: 10.0 ... 30.0) {
                 Text("字体大小")
             }
         }
@@ -37,7 +37,6 @@ struct AppearanceSettingsView: View {
 }
 
 struct ProxySettingsView: View {
-    
     @State var proxyEnable = false
     @State var proxyType: ProxyType = .http
     @State var proxyHost: String = ""
@@ -49,7 +48,6 @@ struct ProxySettingsView: View {
     
     var body: some View {
         Form {
-            
             Toggle("启用代理", isOn: $proxyEnable)
             
             Picker("类型：", selection: $proxyType) {
@@ -72,11 +70,11 @@ struct ProxySettingsView: View {
             .disabled(!proxyNeedPassword)
         }
         .frame(maxWidth: 300)
-        .onChange(of: proxyEnable, perform: { v in save() })
-        .onChange(of: proxyHost, perform: { v in save() })
-        .onChange(of: proxyPort, perform: { v in save() })
+        .onChange(of: proxyEnable, perform: { _ in save() })
+        .onChange(of: proxyHost, perform: { _ in save() })
+        .onChange(of: proxyPort, perform: { _ in save() })
         .onChange(of: proxyNeedPassword, perform: { v in
-            if (!v) {
+            if !v {
                 proxyUsername = ""
                 proxyPassword = ""
             }
@@ -88,7 +86,7 @@ struct ProxySettingsView: View {
         }
     }
     
-    func load(){
+    func load() {
         if let proxyInfo = ProxyHelper.loadProxyInfo() {
             proxyEnable = proxyInfo.enabled
             proxyType = proxyInfo.type
@@ -98,7 +96,7 @@ struct ProxySettingsView: View {
                 proxyPort = String(port)
             }
             
-            if let username = proxyInfo.username, let password = proxyInfo.password, username.count > 0 && password.count > 0 {
+            if let username = proxyInfo.username, let password = proxyInfo.password, username.count > 0, password.count > 0 {
                 proxyUsername = username
                 proxyPassword = password
                 proxyNeedPassword = true

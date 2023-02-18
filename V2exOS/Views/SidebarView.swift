@@ -9,11 +9,10 @@ import SwiftUI
 import V2exAPI
 
 struct SidebarView: View {
-    
     @EnvironmentObject private var currentUser: CurrentUserStore
     @Environment(\.openURL) private var openURL
     
-    @State var nodeList : [V2Node]?
+    @State var nodeList: [V2Node]?
     @State var isLoading = true
     
     @State var searchText: String = ""
@@ -29,8 +28,7 @@ struct SidebarView: View {
     
     var body: some View {
         ScrollViewReader { scrollViewReader in
-            List() {
-                
+            List {
                 Section(header: Text("Home")) {
                     NavigationLink(destination: TopicListView(nodeName: NodeNameHot)) {
                         Label("最热", systemImage: "flame")
@@ -74,7 +72,7 @@ struct SidebarView: View {
             .listStyle(.sidebar)
             .toolbar {
                 ToolbarItemGroup {
-                    Button(action:{
+                    Button(action: {
                         NSApp.keyWindow?.initialFirstResponder?.tryToPerform(
                             #selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
                     }, label: {

@@ -9,7 +9,6 @@ import SwiftUI
 import V2exAPI
 
 struct TopicListView: View {
-    
     public var nodeName: String
     @Binding public var selectedTopic: V2Topic?
     
@@ -50,7 +49,7 @@ struct TopicListView: View {
         }
         
         do {
-            var topics : [V2Topic]? = nil
+            var topics: [V2Topic]?
             
             if nodeName == NodeNameAll {
                 topics = try await v2ex.latestTopics()
@@ -71,7 +70,7 @@ struct TopicListView: View {
             }
             
         } catch {
-            self.error = error;
+            self.error = error
             print(error)
         }
         

@@ -9,10 +9,9 @@ import SwiftUI
 import V2exAPI
 
 struct NodeListView: View {
-    
-    @State var nodeList : [V2Node] = []
+    @State var nodeList: [V2Node] = []
     @State var isLoading = true
-    
+
     var body: some View {
         List(nodeList) { node in
             NavigationLink(destination: TopicListView(nodeName: node.name)) {

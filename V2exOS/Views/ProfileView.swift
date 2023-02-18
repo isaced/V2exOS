@@ -5,11 +5,10 @@
 //  Created by isaced on 2022/8/10.
 //
 
-import SwiftUI
 import Kingfisher
+import SwiftUI
 
 struct ProfileView: View {
-    
     @EnvironmentObject private var currentUser: CurrentUserStore
     
     @State var accessToken: String = ""
@@ -19,14 +18,12 @@ struct ProfileView: View {
     @State private var showingPopover = false
     
     var body: some View {
-        
         VStack {
-            
             Spacer()
             
             if let _ = currentUser.accessToken {
                 profile
-            }else{
+            } else {
                 loginView
             }
             
@@ -37,7 +34,6 @@ struct ProfileView: View {
                     .underline()
                     .padding(20)
             }
-            
         }
         .navigationTitle("用户")
         .toolbar {
@@ -52,7 +48,6 @@ struct ProfileView: View {
     }
     
     var profile: some View {
-        
         VStack {
             KFImage.url(URL(string: currentUser.user?.avatarLarge ?? ""))
                 .resizable()
@@ -62,7 +57,6 @@ struct ProfileView: View {
             
             Text(currentUser.user?.username ?? "")
         }
-        
     }
     
     var loginView: some View {
@@ -92,16 +86,14 @@ struct ProfileView: View {
                 }
                 
                 if isSaveTokenLoading {
-                    
                     ProgressView()
                         .scaleEffect(0.4)
-                }else{
+                } else {
                     if let isAccessTokenChecked = isAccessTokenChecked {
-                        
                         if isAccessTokenChecked {
                             Image(systemName: "checkmark.circle.fill")
                                 .foregroundColor(.green)
-                        }else{
+                        } else {
                             Image(systemName: "exclamationmark.circle.fill")
                                 .foregroundColor(.red)
                         }
@@ -115,7 +107,6 @@ struct ProfileView: View {
                 Text("保存")
             }
             .disabled(isSaveTokenLoading)
-            
         }
         .onAppear {
             accessToken = currentUser.accessToken ?? ""
@@ -137,7 +128,6 @@ struct ProfileView: View {
         }
     }
 }
-
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {

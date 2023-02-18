@@ -8,7 +8,6 @@
 import Foundation
 
 class SettingsConfig: ObservableObject {
-    
     public static let shared = SettingsConfig()
     
     static let FontSizeKey = "settings.font.size"

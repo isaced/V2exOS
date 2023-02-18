@@ -9,15 +9,13 @@ import SwiftUI
 import V2exAPI
 
 struct InboxListView: View {
-    
     @EnvironmentObject private var currentUser: CurrentUserStore
     
-    @State var notificationList : [V2Notification] = []
+    @State var notificationList: [V2Notification] = []
     
     var body: some View {
         VStack {
             if let _ = currentUser.accessToken {
-                
                 List {
                     ForEach(notificationList) { noti in
                         VStack(alignment: .leading) {
@@ -28,7 +26,7 @@ struct InboxListView: View {
                                 Text(noti.member?.username ?? "")
                                     .font(.body)
                                 
-                                if let created = noti.created{
+                                if let created = noti.created {
                                     Text(Date(timeIntervalSince1970: TimeInterval(created)).fromNow())
                                 }
                             }
@@ -44,24 +42,23 @@ struct InboxListView: View {
                     }
                 }.listRowInsets(EdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10))
                 
-            }else{
+            } else {
                 Text("请先登录")
             }
-        }.onAppear{
+        }.onAppear {
             Task {
                 do {
                     if let res = try await v2ex.notifications(page: 1) {
-                        if let list = res.result{
+                        if let list = res.result {
                             notificationList.append(contentsOf: list)
                         }
                     }
-                }catch {
+                } catch {
                     print(error)
                 }
             }
         }
     }
-    
 }
 
 struct InboxListView_Previews: PreviewProvider {
@@ -69,4 +66,3 @@ struct InboxListView_Previews: PreviewProvider {
         InboxListView()
     }
 }
-

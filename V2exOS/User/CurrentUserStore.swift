@@ -6,12 +6,11 @@
 //
 
 import Foundation
+import KeychainAccess
 import SwiftUI
 import V2exAPI
-import KeychainAccess
 
 public class CurrentUserStore: ObservableObject {
-    
     public static let shared = CurrentUserStore()
     
     @Published public private(set) var user: V2Member?
@@ -24,10 +23,8 @@ public class CurrentUserStore: ObservableObject {
     let keychain = Keychain(service: "com.isaced.v2exos")
     let KeychainTokenKey = "AccessToken"
     
-    
-    
     public init() {
-        if let token = readToken(){
+        if let token = readToken() {
             accessToken = token
             
             fetchUser()
@@ -48,12 +45,12 @@ public class CurrentUserStore: ObservableObject {
     func clearToken() {
         do {
             try keychain.remove(KeychainTokenKey)
-        }catch {
+        } catch {
             print(error)
         }
     }
     
-    public func logout(){
+    public func logout() {
         accessToken = nil
         user = nil
         clearToken()
@@ -69,7 +66,7 @@ public class CurrentUserStore: ObservableObject {
                     return true
                 }
             }
-        }catch{
+        } catch {
             print(error)
         }
         v2ex.accessToken = nil
@@ -79,12 +76,12 @@ public class CurrentUserStore: ObservableObject {
     func fetchUser() {
         Task {
             do {
-                if let res = try await v2ex.member(){
+                if let res = try await v2ex.member() {
                     if res.success {
-                        user = res.result;
+                        user = res.result
                     }
                 }
-            }catch{
+            } catch {
                 return
             }
         }

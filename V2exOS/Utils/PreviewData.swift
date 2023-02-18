@@ -17,7 +17,7 @@ struct PreviewData {
                                  avatarLarge: "https://cdn.v2ex.com/avatar/ff10/6e6c/79764_large.png?m=1657684598",
                                  created: 1414903742,
                                  lastModified: 1657684598)
-    
+
     static let topic = V2Topic(id: 1,
                                node: nil,
                                member: PreviewData.member,
@@ -31,7 +31,7 @@ struct PreviewData {
                                contentRendered: "<p>想拆成 Typescript 模块化，有没有什么指路手册？</p>\n",
                                lastModified: 1658649797,
                                replies: 1111)
-    
+
     static let comment = V2Comment(id: 1,
                                    content: "Testtt",
                                    contentRendered: "Testtt",

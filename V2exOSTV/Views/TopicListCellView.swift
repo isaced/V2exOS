@@ -5,23 +5,21 @@
 //  Created by isaced on 2023/1/30.
 //
 
+import Kingfisher
 import SwiftUI
 import V2exAPI
-import Kingfisher
 
 struct TopicListCellView: View {
+    var topic: V2Topic
+    var action: ((V2Topic) -> Void)? = nil
     
-    var topic : V2Topic
-    var action: ( (V2Topic) -> Void )? = nil
-    
-    @State private var member : V2Member? = nil
+    @State private var member: V2Member? = nil
     
     var body: some View {
         Button {
             action?(topic)
         } label: {
             HStack {
-                
                 let avatarUrl = (topic.member ?? member)?.avatarLarge
                 
                 KFImage.url(URL(string: avatarUrl ?? ""))
@@ -32,26 +30,22 @@ struct TopicListCellView: View {
                     .frame(width: 100, height: 100)
                     .mask(RoundedRectangle(cornerRadius: 8))
                 
-                
                 VStack(alignment: .leading, spacing: 6) {
-                    
                     Text(topic.title ?? "")
                         .lineLimit(2)
                     
                     HStack(spacing: 20) {
-                        
                         if let username = topic.member?.username ?? topic.lastReplyBy {
                             Text(username)
                             Text("•")
                         }
                         
                         if let lastModified = topic.lastModified {
-                            Text(Date.init(timeIntervalSince1970: TimeInterval(lastModified)).fromNow())
+                            Text(Date(timeIntervalSince1970: TimeInterval(lastModified)).fromNow())
                         }
                     }
                     .foregroundColor(.gray)
                 }
-                
                 
                 if let replies = topic.replies {
                     Spacer()
@@ -60,7 +54,6 @@ struct TopicListCellView: View {
                         .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
                         .background(RoundedRectangle(cornerRadius: 4).fill(.gray))
                 }
-                
             }
             .foregroundColor(Color(.label))
             .task {
