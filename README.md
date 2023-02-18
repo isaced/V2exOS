@@ -3,13 +3,19 @@
     <img src="/V2exOS/Assets.xcassets/AppIcon.appiconset/icon_256.png" alt="V2exOS" title="V2exOS" width="100" />
   </a>
   <h1 align="center">V2exOS</h1>
-  <div align="center">一个用 SwiftUI 编写的 V2ex macOS/tvOS 客户端</div>
+  <div align="center">一个用 SwiftUI 编写的 V2ex macOS/iOS/tvOS 客户端</div>
 </p>
 
 ![macOS screenshot](https://user-images.githubusercontent.com/2088605/192312063-def16466-052b-457a-9b4c-856b2afb3a42.png#gh-dark-mode-only)
-![macOS screenshot](https://user-images.githubusercontent.com/2088605/192312051-9ec1e43d-4aee-46fb-a61f-fd865e35fca4.png##gh-light-mode-only)
+![macOS screenshot](https://user-images.githubusercontent.com/2088605/192312051-9ec1e43d-4aee-46fb-a61f-fd865e35fca4.png#gh-light-mode-only)
 
-![tvOS screenshot](https://user-images.githubusercontent.com/2088605/215639004-9466ad57-dac1-4f6b-a284-6545ce072057.jpeg)
+<div style="display: flex">
+  <img src="https://user-images.githubusercontent.com/2088605/219903872-311b54cb-59fd-4568-b057-469cd6ebee93.png" height="500" alt="tvOS screenshot" />
+  <img src="https://user-images.githubusercontent.com/2088605/219903934-8fddee2e-51d5-493a-b01d-38a4a55970a1.png#gh-dark-mode-only" height="500" alt="tvOS screenshot" />
+  <img src="https://user-images.githubusercontent.com/2088605/219903581-ce11de4b-c0d9-4843-844a-afd21d3f6993.png#gh-light-mode-only" height="500" alt="iOS screenshot" />
+</div>
+
+
 
 
 ## 下载
@@ -22,8 +28,8 @@ V2exOS 已经发布到 App Store，可以通过下面的链接直接下载；当
 
 ## 关于
 
-- 目标打造一个 macOS/tvOS 平台原生极致体验的 V2ex 客户端
-- 使用 SwiftUI 开发，尽量利用系统和语言新特性，最低适配 macOS 12+
+- 目标打造一个 macOS/iOS/tvOS 三平台原生极致体验的 V2ex 客户端
+- 使用 SwiftUI 开发，尽量利用系统和语言新特性，最低适配 macOS 12+ / iOS 16+ / tvOS 15+
 - 开发过程中抽象出可复用的 V2ex API 网络层为 Swift Package - [V2exAPI](https://github.com/isaced/V2exAPI)
 
 ## 功能
