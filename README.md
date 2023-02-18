@@ -10,9 +10,9 @@
 ![macOS screenshot](https://user-images.githubusercontent.com/2088605/192312051-9ec1e43d-4aee-46fb-a61f-fd865e35fca4.png#gh-light-mode-only)
 
 <div style="display: flex">
-  <img src="https://user-images.githubusercontent.com/2088605/219903872-311b54cb-59fd-4568-b057-469cd6ebee93.png" height="500" alt="tvOS screenshot" />
-  <img src="https://user-images.githubusercontent.com/2088605/219903934-8fddee2e-51d5-493a-b01d-38a4a55970a1.png#gh-dark-mode-only" height="500" alt="tvOS screenshot" />
-  <img src="https://user-images.githubusercontent.com/2088605/219903581-ce11de4b-c0d9-4843-844a-afd21d3f6993.png#gh-light-mode-only" height="500" alt="iOS screenshot" />
+  <img src="https://user-images.githubusercontent.com/2088605/219903872-311b54cb-59fd-4568-b057-469cd6ebee93.png" width="70%" alt="tvOS screenshot" />
+  <img src="https://user-images.githubusercontent.com/2088605/219903934-8fddee2e-51d5-493a-b01d-38a4a55970a1.png#gh-dark-mode-only" width="25%" alt="tvOS screenshot" />
+  <img src="https://user-images.githubusercontent.com/2088605/219903581-ce11de4b-c0d9-4843-844a-afd21d3f6993.png#gh-light-mode-only" width="25%" alt="iOS screenshot" />
 </div>
 
 
