@@ -31,12 +31,20 @@ struct TopicListView: View {
                     if topics.count > 0 && nodeName != NodeNameAll && nodeName != NodeNameHot {
                         HStack {
                             Spacer()
-                            ProgressView()
-                                .onAppear {
-                                    Task {
-                                        await self.loadData(page: self.page + 1)
+                            // 已登陆或列表为空时才加载数据（非登陆用户 API 限制只能取第一页）
+                            if currentUser.user != nil || topics.isEmpty {
+                                ProgressView()
+                                    .onAppear {
+                                        Task {
+                                            await self.loadData(page: self.page + 1)
+                                        }
                                     }
-                                }
+                            }else {
+                                Text("登录后可查看更多内容")
+                                    .font(.footnote)
+                                    .foregroundColor(.secondary)
+                                    .padding(20)
+                            }
                             Spacer()
                         }
                     }
