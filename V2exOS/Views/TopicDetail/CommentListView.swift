@@ -76,6 +76,7 @@ struct CommentListView: View {
                 }
             }
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
 
