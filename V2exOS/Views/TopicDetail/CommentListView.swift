@@ -54,9 +54,7 @@ struct CommentListView: View {
                                         UserName(username)
                                     }
                                     
-                                    if let created = comment.created {
-                                        Text(Date(timeIntervalSince1970: TimeInterval(created)).fromNow())
-                                    }
+                                    Text(Date(timeIntervalSince1970: TimeInterval(comment.created)).fromNow())
                                     
                                     Spacer()
                                     
