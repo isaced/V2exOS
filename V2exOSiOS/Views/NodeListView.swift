@@ -23,14 +23,16 @@ struct NodeListView: View {
                 ProgressView()
             }
         }
-        .task {
-            self.isLoading = true
-            do {
-                self.nodeList = try await v2ex.nodesList() ?? []
-            } catch {
-                print(error)
+        .onFirstAppear {
+            Task {
+                self.isLoading = true
+                do {
+                    self.nodeList = try await v2ex.nodesList() ?? []
+                } catch {
+                    print(error)
+                }
+                self.isLoading = false
             }
-            self.isLoading = false
         }
     }
 }

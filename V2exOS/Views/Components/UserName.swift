@@ -10,37 +10,47 @@ import SwiftUI
 
 struct UserName: View {
     var username: String
+    var isLink = true
 
-    init(_ username: String) {
+    init(_ username: String, isLink: Bool = true) {
         self.username = username
+        self.isLink = isLink
+    }
+
+    var label: some View {
+        Text(username)
+            .foregroundColor(.secondary)
+#if os(macOS)
+            .onHover { inside in
+                if inside {
+                    NSCursor.pointingHand.push()
+                } else {
+                    NSCursor.pop()
+                }
+            }
+#endif
     }
 
     var body: some View {
 #if os(macOS) || os(iOS)
-        Button {
-            if let url = URL(string: "https://www.v2ex.com/member/\(username)") {
+        if isLink {
+            Button {
+                if let url = URL(string: "https://www.v2ex.com/member/\(username)") {
 #if os(iOS)
-                UIApplication.shared.open(url)
+                    UIApplication.shared.open(url)
 #endif
 #if os(macOS)
-                NSWorkspace.shared.open(url)
+                    NSWorkspace.shared.open(url)
 #endif
+                }
+            } label: {
+                label
             }
-        } label: {
-            Text(username)
-                .foregroundColor(.secondary)
-//                .fontWeight(.bold)
-#if os(macOS)
-.onHover { inside in
-    if inside {
-        NSCursor.pointingHand.push()
-    } else {
-        NSCursor.pop()
-    }
-}
-#endif
+            .buttonStyle(PlainButtonStyle())
+        } else {
+            label
         }
-        .buttonStyle(PlainButtonStyle())
+
 #elseif os(tvOS)
         Text(username)
             .foregroundColor(.secondary)

@@ -47,12 +47,18 @@ struct TopicDetailView: View {
                         Link(destination: URL(string: "https://www.v2ex.com/t/\(topic.id)")!) {
                             HStack(alignment: .bottom, spacing: 5) {
                                 Image(systemName: "safari")
+#if !os(iOS)
                                 Text("在浏览器中打开")
+#endif
                             }
                         }
 #endif
                     }
                     .foregroundColor(.secondary)
+                    
+                    Spacer()
+                    
+                    Divider()
                     
                     Spacer()
                     
@@ -83,7 +89,11 @@ struct TopicDetailView: View {
 #endif
                 }
             }
+#if os(iOS)
+            .padding(EdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10))
+#else
             .padding(10)
+#endif
         }
 #if os(iOS)
         .listStyle(.plain)

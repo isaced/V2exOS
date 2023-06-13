@@ -19,13 +19,27 @@ struct TopicListView: View {
     @State var page = 1
     @State var error: Error?
     @State var _node: V2Node?
+    @State var selectTopic: V2Topic? = nil
     
     var body: some View {
         NavigationView {
             List {
                 if let topics = topics {
                     ForEach(topics) { topic in
-                        TopicListCellView(topic: topic)
+                        #if os(iOS)
+                        
+                        Button {
+                            selectTopic = topic
+                        } label: {
+                            TopicListCellView(topic: topic)
+                        }
+                        #else
+                        NavigationLink {
+                            TopicDetailView(topic: topic)
+                        } label: {
+                            TopicListCellView(topic: topic)
+                        }
+                        #endif
                     }
                     
                     if topics.count > 0 && nodeName != NodeNameAll && nodeName != NodeNameHot {
@@ -39,11 +53,13 @@ struct TopicListView: View {
                                             await self.loadData(page: self.page + 1)
                                         }
                                     }
-                            }else {
+                            } else {
+                                #if os(macOS)
                                 Text("登录后可查看更多内容")
                                     .font(.footnote)
                                     .foregroundColor(.secondary)
                                     .padding(20)
+                                #endif
                             }
                             Spacer()
                         }
@@ -65,20 +81,25 @@ struct TopicListView: View {
                 }
             }
         }
+        #if os(iOS)
+        .navigationTitle(_node?.title ?? "")
+        .navigationViewStyle(.stack)
+        .navigationBarTitleDisplayMode(.inline)
+        #endif
+        #if os(macOS)
         .navigationTitle(_node?.title ?? "V2exOS")
-#if os(iOS)
-            .navigationViewStyle(.stack)
-#endif
-#if os(macOS)
-.navigationSubtitle(_node?.header ?? "")
-#endif
-.toolbar {
-    KFImage.url(URL(string: _node?.avatarNormal ?? ""))
-        .resizable()
-        .fade(duration: 0.25)
-        .frame(width: 20, height: 20)
-        .mask(RoundedRectangle(cornerRadius: 8))
-}
+        .navigationSubtitle(_node?.header ?? "")
+        #endif
+        .toolbar {
+            KFImage.url(URL(string: _node?.avatarNormal ?? ""))
+                .resizable()
+                .fade(duration: 0.25)
+                .frame(width: 20, height: 20)
+                .mask(RoundedRectangle(cornerRadius: 8))
+        }
+        .sheet(item: $selectTopic) { topic in
+            TopicDetailView(topic: topic)
+        }
     }
     
     func loadData(page: Int = 1) async {

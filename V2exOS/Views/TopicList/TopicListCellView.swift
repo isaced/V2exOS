@@ -23,51 +23,47 @@ struct TopicListCellView: View {
     }
     
     var body: some View {
-        NavigationLink {
-            TopicDetailView(topic: topic)
-        } label: {
-            HStack {
-                let avatarUrl = (topic.member ?? member)?.avatarLarge
+        HStack {
+            let avatarUrl = (topic.member ?? member)?.avatarLarge
                 
-                KFImage.url(URL(string: avatarUrl ?? ""))
-                    .resizable()
-                    .fade(duration: 0.25)
-                    .scaledToFit()
-                    .background(.gray)
-                    .frame(width: 48, height: 48)
-                    .mask(RoundedRectangle(cornerRadius: 8))
+            KFImage.url(URL(string: avatarUrl ?? ""))
+                .resizable()
+                .fade(duration: 0.25)
+                .scaledToFit()
+                .background(.gray)
+                .frame(width: 48, height: 48)
+                .mask(RoundedRectangle(cornerRadius: 8))
                 
-                VStack(alignment: .leading, spacing: 6) {
-                    Text(topic.title ?? "")
-                        .lineLimit(2)
+            VStack(alignment: .leading, spacing: 6) {
+                Text(topic.title ?? "")
+                    .lineLimit(2)
                     
-                    HStack {
-                        if let username = topic.member?.username ?? topic.lastReplyBy {
-                            UserName(username)
-                            Text("•")
-                        }
-                        
-                        if let lastModified = topic.lastModified {
-                            Text(Date(timeIntervalSince1970: TimeInterval(lastModified)).fromNow())
-                        }
+                HStack {
+                    if let username = topic.member?.username ?? topic.lastReplyBy {
+                        UserName(username, isLink: false)
+                        Text("•")
                     }
-                    .foregroundColor(.gray)
+                        
+                    if let lastModified = topic.lastModified {
+                        Text(Date(timeIntervalSince1970: TimeInterval(lastModified)).fromNow())
+                    }
                 }
-                
-                if let replies = topic.replies {
-                    Spacer()
-                    Text(String(replies))
-                        .foregroundColor(.white)
-                        .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
-                        .background(RoundedRectangle(cornerRadius: 4).fill(.gray))
-                }
+                .foregroundColor(.gray)
             }
-            .foregroundColor(.label)
-            .task {
-                if let name = topic.lastReplyBy {
-                    member = try? await v2ex.memberShow(username: name)
-                    isMemberLoading = member == nil
-                }
+                
+            if let replies = topic.replies {
+                Spacer()
+                Text(String(replies))
+                    .foregroundColor(.white)
+                    .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
+                    .background(RoundedRectangle(cornerRadius: 4).fill(.gray))
+            }
+        }
+        .foregroundColor(.label)
+        .task {
+            if let name = topic.lastReplyBy {
+                member = try? await v2ex.memberShow(username: name)
+                isMemberLoading = member == nil
             }
         }
     }
