@@ -64,7 +64,12 @@ struct TopicDetailView: View {
                     
                     Markdown(topic.content ?? "")
 #if os(macOS)
-                        .markdownStyle(MarkdownStyle(font: .system(size: settingsConfig.fontSize)))
+                        .markdownTheme(
+                            Theme()
+                                .text {
+                                    FontSize(settingsConfig.fontSize)
+                                }
+                        )
 #endif
 #if os(tvOS)
 .focusable()
