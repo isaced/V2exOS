@@ -37,6 +37,14 @@ struct TopicListView: View {
                 await loadData()
             }
         }
+        .onPlayPauseCommand {
+            Task {
+                topics = nil
+                page = 1
+                selectedTopic = nil
+                await loadData()
+            }
+        }
     }
     
     func loadData(page: Int = 1) async {
@@ -49,6 +57,7 @@ struct TopicListView: View {
         }
         
         do {
+            print("load Data...")
             var topics: [V2Topic]?
             
             if nodeName == NodeNameAll {
