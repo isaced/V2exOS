@@ -12,8 +12,6 @@ extension Color {
 #if os(macOS)
         return Color(.labelColor)
 #endif
-#if os(iOS)
         return Color(.label)
-#endif
     }
 }
