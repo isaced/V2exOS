@@ -20,15 +20,12 @@ struct TopicListView: View {
     @State var error: Error?
     @State var _node: V2Node?
     @State var selectTopic: V2Topic? = nil
-    @State var hoveringTopic: V2Topic? = nil
     
     func listRowBackgroundColor(_ topic: V2Topic) -> Color {
         if selectTopic == topic {
             return Color("ListRowHighlightBackgroundColor")
-        }else if hoveringTopic == topic {
-            return Color("ListRowHighlightBackgroundColor").opacity(0.2)
         }
-        return .clear
+        return Color("ContentBackgroundColor")
     }
     
     var body: some View {
@@ -37,7 +34,6 @@ struct TopicListView: View {
                 if let topics = topics {
                     ForEach(topics) { topic in
                         #if os(iOS)
-                        
                         Button {
                             selectTopic = topic
                         } label: {
@@ -49,10 +45,7 @@ struct TopicListView: View {
                         } label: {
                             TopicListCellView(topic: topic)
                         }
-                        .onHover { hovering in
-                            hoveringTopic =  hovering ? topic : nil
-                        }
-                        .listRowBackground(listRowBackgroundColor(topic).animation(.easeInOut(duration: 0.1)))
+                        .listRowBackground(listRowBackgroundColor(topic).animation(.linear(duration: 0.05)))
                         .padding(.horizontal, 8)
                         .padding(.vertical, 4)
                         #endif
@@ -103,6 +96,9 @@ struct TopicListView: View {
         .navigationTitle(_node?.title ?? "")
         .navigationViewStyle(.stack)
         .navigationBarTitleDisplayMode(.inline)
+        .sheet(item: $selectTopic) { topic in
+            TopicDetailView(topic: topic)
+        }
         #endif
         #if os(macOS)
         .navigationTitle(_node?.title ?? "V2exOS")
@@ -114,9 +110,6 @@ struct TopicListView: View {
                 .fade(duration: 0.25)
                 .frame(width: 20, height: 20)
                 .mask(RoundedRectangle(cornerRadius: 8))
-        }
-        .sheet(item: $selectTopic) { topic in
-            TopicDetailView(topic: topic)
         }
     }
     
