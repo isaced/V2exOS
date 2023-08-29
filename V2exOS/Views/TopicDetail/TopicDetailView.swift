@@ -105,7 +105,6 @@ struct TopicDetailView: View {
             loadComments(page: 1)
         }
 #if os(macOS)
-        .background(Color("ContentBackgroundColor"))
         .hiddeScrollContentBackground()
 #endif
     }

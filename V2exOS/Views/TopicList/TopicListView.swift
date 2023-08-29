@@ -29,7 +29,7 @@ struct TopicListView: View {
     }
     
     var body: some View {
-        NavigationView() {
+        NavigationView {
             List {
                 if let topics = topics {
                     ForEach(topics) { topic in
@@ -45,7 +45,7 @@ struct TopicListView: View {
                         } label: {
                             TopicListCellView(topic: topic)
                         }
-                        .listRowBackground(listRowBackgroundColor(topic).animation(.linear(duration: 0.05)))
+                        .listRowBackground(listRowBackgroundColor(topic))
                         .padding(.horizontal, 8)
                         .padding(.vertical, 4)
                         #endif
@@ -83,8 +83,8 @@ struct TopicListView: View {
             .listStyle(.plain)
             .frame(minWidth: 400, idealWidth: 500)
             .foregroundColor(.black)
-            .removeBackground()
-            .background(Color("ContentBackgroundColor"))
+//            .removeBackground()
+//            .background(Color("ContentBackgroundColor"))
             .onFirstAppear {
                 print("onFirstAppear....")
                 Task {
