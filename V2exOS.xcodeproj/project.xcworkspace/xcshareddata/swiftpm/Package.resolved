@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/onevcat/Kingfisher",
       "state" : {
-        "revision" : "e8625b80c413457b13ea9be75d07f6e9f5830c19",
-        "version" : "7.7.0"
+        "revision" : "b6f62758f21a8c03cd64f4009c037cfa580a256e",
+        "version" : "7.9.1"
       }
     },
     {
@@ -50,8 +50,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/isaced/V2exAPI.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "2e15716b7315a2f274fa17eedaa399095f5d0156"
+        "revision" : "2e15716b7315a2f274fa17eedaa399095f5d0156",
+        "version" : "1.1.1"
       }
     }
   ],

@@ -939,8 +939,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/isaced/V2exAPI.git";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.1;
 			};
 		};
 		0D2334DC2996972300DF4B73 /* XCRemoteSwiftPackageReference "PagerTabStripView" */ = {
