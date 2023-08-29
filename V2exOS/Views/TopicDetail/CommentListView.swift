@@ -35,6 +35,7 @@ struct CommentListView: View {
                         let comment = commentList[index]
                         
                         Divider()
+                            .overlay(Color("DividerColor"))
                         
                         HStack(alignment: .top) {
                             if let avatarUrl = comment.member.avatarLarge {

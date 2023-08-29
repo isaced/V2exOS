@@ -19,9 +19,10 @@ struct UserName: View {
 
     var label: some View {
         Text(username)
-            .foregroundColor(.secondary)
 #if os(macOS)
             .onHover { inside in
+                guard isLink else { return }
+                
                 if inside {
                     NSCursor.pointingHand.push()
                 } else {
@@ -35,14 +36,7 @@ struct UserName: View {
 #if os(macOS) || os(iOS)
         if isLink {
             Button {
-                if let url = URL(string: "https://www.v2ex.com/member/\(username)") {
-#if os(iOS)
-                    UIApplication.shared.open(url)
-#endif
-#if os(macOS)
-                    NSWorkspace.shared.open(url)
-#endif
-                }
+                jump(username)
             } label: {
                 label
             }
@@ -58,6 +52,17 @@ struct UserName: View {
 #else
         EmptyView()
 #endif
+    }
+    
+    func jump(_ username: String) {
+        if let url = URL(string: "https://www.v2ex.com/member/\(username)") {
+#if os(iOS)
+                    UIApplication.shared.open(url)
+#endif
+#if os(macOS)
+                    NSWorkspace.shared.open(url)
+#endif
+        }
     }
 }
 

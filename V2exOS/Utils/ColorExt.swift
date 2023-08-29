@@ -11,7 +11,8 @@ extension Color {
     static var label: Color {
 #if os(macOS)
         return Color(.labelColor)
+#else
+        return Color(UIColor.label)
 #endif
-        return Color(.label)
     }
 }

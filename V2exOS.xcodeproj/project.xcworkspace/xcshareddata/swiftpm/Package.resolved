@@ -37,12 +37,21 @@
       }
     },
     {
+      "identity" : "swiftui-introspect",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/siteline/SwiftUI-Introspect.git",
+      "state" : {
+        "revision" : "121c146fe591b1320238d054ae35c81ffa45f45a",
+        "version" : "0.12.0"
+      }
+    },
+    {
       "identity" : "v2exapi",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/isaced/V2exAPI.git",
       "state" : {
         "branch" : "main",
-        "revision" : "910c1b52c03ba481f90067c433b78fc0c848d4e8"
+        "revision" : "2e15716b7315a2f274fa17eedaa399095f5d0156"
       }
     }
   ],

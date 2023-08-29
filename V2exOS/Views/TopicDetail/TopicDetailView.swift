@@ -19,7 +19,7 @@ struct TopicDetailView: View {
     
     var body: some View {
         ScrollView {
-            Group {
+            VStack {
                 VStack(alignment: .leading, spacing: 5) {
                     Text(topic.title ?? "")
                         .font(.title)
@@ -59,6 +59,7 @@ struct TopicDetailView: View {
                     Spacer()
                     
                     Divider()
+                        .overlay(Color("DividerColor"))
                     
                     Spacer()
                     
@@ -94,10 +95,11 @@ struct TopicDetailView: View {
 #endif
                 }
             }
+            .hiddeScrollContentBackground()
 #if os(iOS)
             .padding(EdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10))
 #else
-            .padding(10)
+            .padding(30)
 #endif
         }
 #if os(iOS)
@@ -107,6 +109,10 @@ struct TopicDetailView: View {
         .onFirstAppear {
             loadComments(page: 1)
         }
+#if os(macOS)
+        .background(Color("ContentBackgroundColor"))
+        .hiddeScrollContentBackground()
+#endif
     }
     
     func loadComments(page: Int) {

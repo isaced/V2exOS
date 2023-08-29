@@ -13,6 +13,8 @@
 		0D033B3E288D0FF700129C9B /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D033B3D288D0FF700129C9B /* SidebarView.swift */; };
 		0D033B40288D140C00129C9B /* TopicListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D033B3F288D140C00129C9B /* TopicListView.swift */; };
 		0D033B42288D15CF00129C9B /* TopicDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D033B41288D15CF00129C9B /* TopicDetailView.swift */; };
+		0D0E9CEC2A9DF454004B0C22 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = 0D0E9CEB2A9DF454004B0C22 /* SwiftUIIntrospect */; };
+		0D0E9CEE2A9DF45D004B0C22 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = 0D0E9CED2A9DF45D004B0C22 /* SwiftUIIntrospect */; };
 		0D12614A28A94AA3009DBCE2 /* V2exAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 0D12614928A94AA3009DBCE2 /* V2exAPI */; };
 		0D139DE228E7E06C00E4CF88 /* UserName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D139DE128E7E06C00E4CF88 /* UserName.swift */; };
 		0D2334D12996944500DF4B73 /* V2exOSiOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2334D02996944500DF4B73 /* V2exOSiOSApp.swift */; };
@@ -69,6 +71,7 @@
 		0DA7FA852987A76500374B3A /* AppearanceConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D34DF8E2942FED1000A0096 /* AppearanceConfig.swift */; };
 		0DA7FA862987A76B00374B3A /* UserName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D139DE128E7E06C00E4CF88 /* UserName.swift */; };
 		0DA7FA872987A8C800374B3A /* TopicDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D033B41288D15CF00129C9B /* TopicDetailView.swift */; };
+		0DA8383A2A9DD3E900C8DA47 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = 0DA838392A9DD3E900C8DA47 /* SwiftUIIntrospect */; };
 		0DD2A4DD2987C57B0018C2CF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD2A4DC2987C57B0018C2CF /* Constants.swift */; };
 		0DD2A4DE2987C57B0018C2CF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD2A4DC2987C57B0018C2CF /* Constants.swift */; };
 		0DF3300E28A55DEA00AEF312 /* InboxListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF3300D28A55DEA00AEF312 /* InboxListView.swift */; };
@@ -125,6 +128,7 @@
 				0DA3F3A428A411ED00E7224D /* KeychainAccess in Frameworks */,
 				0D8F3356288D245300C27AF1 /* Kingfisher in Frameworks */,
 				0D12614A28A94AA3009DBCE2 /* V2exAPI in Frameworks */,
+				0DA8383A2A9DD3E900C8DA47 /* SwiftUIIntrospect in Frameworks */,
 				0D8F3353288D243A00C27AF1 /* MarkdownUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,6 +140,7 @@
 				0D2334E82996998500DF4B73 /* Kingfisher in Frameworks */,
 				0D2334DF299697E000DF4B73 /* PagerTabStripView in Frameworks */,
 				0D2334EA2996998500DF4B73 /* V2exAPI in Frameworks */,
+				0D0E9CEE2A9DF45D004B0C22 /* SwiftUIIntrospect in Frameworks */,
 				0D2334E62996998500DF4B73 /* MarkdownUI in Frameworks */,
 				0D5555FF2997C1FF00A8B9FD /* KeychainAccess in Frameworks */,
 			);
@@ -148,6 +153,7 @@
 				0DA7FA842987A71900374B3A /* MarkdownUI in Frameworks */,
 				0DA7FA7529879A0B00374B3A /* V2exAPI in Frameworks */,
 				0DA7FA7329879A0B00374B3A /* Kingfisher in Frameworks */,
+				0D0E9CEC2A9DF454004B0C22 /* SwiftUIIntrospect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +354,7 @@
 				0D8F3355288D245300C27AF1 /* Kingfisher */,
 				0DA3F3A328A411ED00E7224D /* KeychainAccess */,
 				0D12614928A94AA3009DBCE2 /* V2exAPI */,
+				0DA838392A9DD3E900C8DA47 /* SwiftUIIntrospect */,
 			);
 			productName = V2exOS;
 			productReference = 0D033B22288CD64500129C9B /* V2exOS.app */;
@@ -372,6 +379,7 @@
 				0D2334E72996998500DF4B73 /* Kingfisher */,
 				0D2334E92996998500DF4B73 /* V2exAPI */,
 				0D5555FE2997C1FF00A8B9FD /* KeychainAccess */,
+				0D0E9CED2A9DF45D004B0C22 /* SwiftUIIntrospect */,
 			);
 			productName = V2exOSiOS;
 			productReference = 0D2334CE2996944500DF4B73 /* V2exOSiOS.app */;
@@ -394,6 +402,7 @@
 				0DA7FA7229879A0B00374B3A /* Kingfisher */,
 				0DA7FA7429879A0B00374B3A /* V2exAPI */,
 				0DA7FA832987A71900374B3A /* MarkdownUI */,
+				0D0E9CEB2A9DF454004B0C22 /* SwiftUIIntrospect */,
 			);
 			productName = V2exOSTV;
 			productReference = 0DA7FA64298799B300374B3A /* V2exOSTV.app */;
@@ -435,6 +444,7 @@
 				0DA3F3A228A411ED00E7224D /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				0D12614828A94963009DBCE2 /* XCRemoteSwiftPackageReference "V2exAPI" */,
 				0D2334DC2996972300DF4B73 /* XCRemoteSwiftPackageReference "PagerTabStripView" */,
+				0DA838362A9DD2AB00C8DA47 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = 0D033B23288CD64500129C9B /* Products */;
 			projectDirPath = "";
@@ -678,13 +688,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = V2exOS/V2exOS.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"V2exOS/Preview Content\"";
-				DEVELOPMENT_TEAM = S4XH6LVQ6A;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -713,13 +723,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = V2exOS/V2exOS.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"V2exOS/Preview Content\"";
-				DEVELOPMENT_TEAM = S4XH6LVQ6A;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -747,10 +757,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"V2exOSiOS/Preview Content\"";
-				DEVELOPMENT_TEAM = S4XH6LVQ6A;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = V2exOSiOS/Info.plist;
@@ -769,6 +779,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.isaced.v2exos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -782,10 +793,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"V2exOSiOS/Preview Content\"";
-				DEVELOPMENT_TEAM = S4XH6LVQ6A;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = V2exOSiOS/Info.plist;
@@ -804,6 +815,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.isaced.v2exos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -819,10 +831,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"V2exOSTV/Preview Content\"";
-				DEVELOPMENT_TEAM = S4XH6LVQ6A;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = V2exOSTV/Info_tv.plist;
@@ -853,10 +865,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"V2exOSTV/Preview Content\"";
-				DEVELOPMENT_TEAM = S4XH6LVQ6A;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = V2exOSTV/Info_tv.plist;
@@ -963,9 +975,27 @@
 				minimumVersion = 4.0.0;
 			};
 		};
+		0DA838362A9DD2AB00C8DA47 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.12.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0D0E9CEB2A9DF454004B0C22 /* SwiftUIIntrospect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0DA838362A9DD2AB00C8DA47 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = SwiftUIIntrospect;
+		};
+		0D0E9CED2A9DF45D004B0C22 /* SwiftUIIntrospect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0DA838362A9DD2AB00C8DA47 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = SwiftUIIntrospect;
+		};
 		0D12614928A94AA3009DBCE2 /* V2exAPI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0D12614828A94963009DBCE2 /* XCRemoteSwiftPackageReference "V2exAPI" */;
@@ -1025,6 +1055,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0D8F3351288D243A00C27AF1 /* XCRemoteSwiftPackageReference "MarkdownUI" */;
 			productName = MarkdownUI;
+		};
+		0DA838392A9DD3E900C8DA47 /* SwiftUIIntrospect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0DA838362A9DD2AB00C8DA47 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = SwiftUIIntrospect;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

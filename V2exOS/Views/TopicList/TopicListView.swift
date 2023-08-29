@@ -20,9 +20,19 @@ struct TopicListView: View {
     @State var error: Error?
     @State var _node: V2Node?
     @State var selectTopic: V2Topic? = nil
+    @State var hoveringTopic: V2Topic? = nil
+    
+    func listRowBackgroundColor(_ topic: V2Topic) -> Color {
+        if selectTopic == topic {
+            return Color("ListRowHighlightBackgroundColor")
+        }else if hoveringTopic == topic {
+            return Color("ListRowHighlightBackgroundColor").opacity(0.2)
+        }
+        return .clear
+    }
     
     var body: some View {
-        NavigationView {
+        NavigationView() {
             List {
                 if let topics = topics {
                     ForEach(topics) { topic in
@@ -34,11 +44,17 @@ struct TopicListView: View {
                             TopicListCellView(topic: topic)
                         }
                         #else
-                        NavigationLink {
+                        NavigationLink(tag: topic, selection: $selectTopic) {
                             TopicDetailView(topic: topic)
                         } label: {
                             TopicListCellView(topic: topic)
                         }
+                        .onHover { hovering in
+                            hoveringTopic =  hovering ? topic : nil
+                        }
+                        .listRowBackground(listRowBackgroundColor(topic).animation(.easeInOut(duration: 0.1)))
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
                         #endif
                     }
                     
@@ -71,9 +87,11 @@ struct TopicListView: View {
                     ProgressView()
                 }
             }
-            .listStyle(.inset)
+            .listStyle(.plain)
             .frame(minWidth: 400, idealWidth: 500)
             .foregroundColor(.black)
+            .removeBackground()
+            .background(Color("ContentBackgroundColor"))
             .onFirstAppear {
                 print("onFirstAppear....")
                 Task {
