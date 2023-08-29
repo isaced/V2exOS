@@ -22,7 +22,7 @@ struct UserName: View {
 #if os(macOS)
             .onHover { inside in
                 guard isLink else { return }
-                
+
                 if inside {
                     NSCursor.pointingHand.push()
                 } else {
@@ -53,14 +53,14 @@ struct UserName: View {
         EmptyView()
 #endif
     }
-    
+
     func jump(_ username: String) {
         if let url = URL(string: "https://www.v2ex.com/member/\(username)") {
 #if os(iOS)
-                    UIApplication.shared.open(url)
+            UIApplication.shared.open(url)
 #endif
 #if os(macOS)
-                    NSWorkspace.shared.open(url)
+            NSWorkspace.shared.open(url)
 #endif
         }
     }

@@ -22,12 +22,16 @@ struct TopicDetailView: View {
             VStack {
                 VStack(alignment: .leading, spacing: 5) {
                     Text(topic.title ?? "")
-                        .font(.title)
+                        .font(.largeTitle)
                         .lineLimit(3)
+                        .multilineTextAlignment(.leading)
                         .foregroundColor(.label)
 #if os(tvOS)
                         .focusable()
+#else
+                        .link("https://www.v2ex.com/t/\(topic.id)")
 #endif
+                        .hoverPointCursor()
                     
                     HStack(alignment: .bottom, spacing: 20) {
                         if let authorName = topic.member?.username {
@@ -43,16 +47,6 @@ struct TopicDetailView: View {
                                 Text(Date(timeIntervalSince1970: TimeInterval(created)).fromNow())
                             }
                         }
-#if !os(tvOS)
-                        Link(destination: URL(string: "https://www.v2ex.com/t/\(topic.id)")!) {
-                            HStack(alignment: .bottom, spacing: 5) {
-                                Image(systemName: "safari")
-#if !os(iOS)
-                                Text("在浏览器中打开")
-#endif
-                            }
-                        }
-#endif
                     }
                     .foregroundColor(.secondary)
                     
@@ -64,6 +58,7 @@ struct TopicDetailView: View {
                     Spacer()
                     
                     Markdown(topic.content ?? "")
+                        .lineSpacing(6)
 #if os(macOS)
                         .markdownTheme(
                             Theme()
@@ -97,9 +92,9 @@ struct TopicDetailView: View {
             }
             .hiddeScrollContentBackground()
 #if os(iOS)
-            .padding(EdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10))
+                .padding(EdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10))
 #else
-            .padding(30)
+                .padding(30)
 #endif
         }
 #if os(iOS)

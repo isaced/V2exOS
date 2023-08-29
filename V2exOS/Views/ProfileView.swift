@@ -76,13 +76,7 @@ struct ProfileView: View {
                         Text("请前往 v2ex.com/settings/tokens 生成")
                     }
                     .padding()
-                    .onHover { inside in
-                        if inside {
-                            NSCursor.pointingHand.push()
-                        } else {
-                            NSCursor.pop()
-                        }
-                    }
+                    .hoverPointCursor()
                 }
                 
                 if isSaveTokenLoading {
