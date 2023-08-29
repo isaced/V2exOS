@@ -28,7 +28,7 @@ struct AppearanceSettingsView: View {
     
     var body: some View {
         Form {
-            Slider(value: $SettingsConfig.fontSize, in: 10.0 ... 30.0) {
+            Slider(value: $SettingsConfig.fontSize, in: 14.0 ... 20.0, step: 2) {
                 Text("字体大小")
             }
         }

@@ -68,7 +68,7 @@ struct CommentListView: View {
                                 Text(LocalizedStringKey(comment.content))
                                     .foregroundColor(.label)
 #if os(macOS)
-                                    .font(.system(size: settingsConfig.fontSize))
+                                    .font(.system(size: settingsConfig.fontSize - 1))
 #endif
                             }
                         }

@@ -12,6 +12,7 @@ import V2exAPI
 struct TopicListCellView: View {
     @State var isMemberLoading = false
     
+    @EnvironmentObject private var settingsConfig: SettingsConfig
     @Environment(\.colorScheme) var colorScheme
     
     let topic: V2Topic
@@ -37,6 +38,7 @@ struct TopicListCellView: View {
             VStack(alignment: .leading, spacing: 6) {
                 Text(topic.title ?? "")
                     .lineLimit(2)
+                    .font(Font.system(size: settingsConfig.fontSize - 1))
                     
                 HStack {
                     if let username = topic.member?.username ?? topic.lastReplyBy {
