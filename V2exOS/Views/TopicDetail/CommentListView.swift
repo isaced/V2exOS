@@ -70,7 +70,7 @@ struct CommentListView: View {
                                     
                                     Spacer()
                                     
-                                    Text("#\(index)")
+                                    Text("#\(index + 1)")
                                 }
                                 .foregroundColor(.secondary)
                                 
