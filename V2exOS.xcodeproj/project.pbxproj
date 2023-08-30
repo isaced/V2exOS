@@ -74,6 +74,9 @@
 		0DA8383A2A9DD3E900C8DA47 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = 0DA838392A9DD3E900C8DA47 /* SwiftUIIntrospect */; };
 		0DD2A4DD2987C57B0018C2CF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD2A4DC2987C57B0018C2CF /* Constants.swift */; };
 		0DD2A4DE2987C57B0018C2CF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD2A4DC2987C57B0018C2CF /* Constants.swift */; };
+		0DEFFCB22A9EDB5100A1585B /* CommentUserTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEFFCB12A9EDB5100A1585B /* CommentUserTagView.swift */; };
+		0DEFFCB32A9EDB5100A1585B /* CommentUserTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEFFCB12A9EDB5100A1585B /* CommentUserTagView.swift */; };
+		0DEFFCB42A9EDB5100A1585B /* CommentUserTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEFFCB12A9EDB5100A1585B /* CommentUserTagView.swift */; };
 		0DF3300E28A55DEA00AEF312 /* InboxListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF3300D28A55DEA00AEF312 /* InboxListView.swift */; };
 		0DF3301028A56A3600AEF312 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF3300F28A56A3600AEF312 /* StringExt.swift */; };
 /* End PBXBuildFile section */
@@ -116,6 +119,7 @@
 		0DA7FA7929879BD300374B3A /* TopicListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicListCellView.swift; sourceTree = "<group>"; };
 		0DA7FA7C29879D3300374B3A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		0DD2A4DC2987C57B0018C2CF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0DEFFCB12A9EDB5100A1585B /* CommentUserTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentUserTagView.swift; sourceTree = "<group>"; };
 		0DF3300D28A55DEA00AEF312 /* InboxListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxListView.swift; sourceTree = "<group>"; };
 		0DF3300F28A56A3600AEF312 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -320,6 +324,7 @@
 			children = (
 				0D033B41288D15CF00129C9B /* TopicDetailView.swift */,
 				0D8A2E6E2896AB49001B2769 /* CommentListView.swift */,
+				0DEFFCB12A9EDB5100A1585B /* CommentUserTagView.swift */,
 			);
 			path = TopicDetail;
 			sourceTree = "<group>";
@@ -504,6 +509,7 @@
 				0D34DF8F2942FED1000A0096 /* AppearanceConfig.swift in Sources */,
 				0D033B26288CD64500129C9B /* V2exOSApp.swift in Sources */,
 				0D139DE228E7E06C00E4CF88 /* UserName.swift in Sources */,
+				0DEFFCB22A9EDB5100A1585B /* CommentUserTagView.swift in Sources */,
 				0D033B3E288D0FF700129C9B /* SidebarView.swift in Sources */,
 				0DF3300E28A55DEA00AEF312 /* InboxListView.swift in Sources */,
 				0D40378E28E6E4F500B1A341 /* ProxyHelper.swift in Sources */,
@@ -530,6 +536,7 @@
 				0D5555FC2997C1C500A8B9FD /* CurrentUserStore.swift in Sources */,
 				0D2334F129969A6B00DF4B73 /* PreviewData.swift in Sources */,
 				0D2334D12996944500DF4B73 /* V2exOSiOSApp.swift in Sources */,
+				0DEFFCB42A9EDB5100A1585B /* CommentUserTagView.swift in Sources */,
 				0D2334EC299699B000DF4B73 /* AppearanceConfig.swift in Sources */,
 				0D7EF06F299736C800E77A0C /* NodeListView.swift in Sources */,
 				0D2334E42996997000DF4B73 /* TopicListCellView.swift in Sources */,
@@ -547,6 +554,7 @@
 				0DA7FA862987A76B00374B3A /* UserName.swift in Sources */,
 				0DA7FA67298799B300374B3A /* V2exOSTVApp.swift in Sources */,
 				0DA7FA822987A6DB00374B3A /* CommentListView.swift in Sources */,
+				0DEFFCB32A9EDB5100A1585B /* CommentUserTagView.swift in Sources */,
 				0D5555FA2997B6B100A8B9FD /* ViewExt.swift in Sources */,
 				0DA7FA7B29879CA500374B3A /* TimeFormat.swift in Sources */,
 				0DA7FA872987A8C800374B3A /* TopicDetailView.swift in Sources */,

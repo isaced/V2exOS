@@ -77,7 +77,8 @@ struct TopicDetailView: View {
 #endif
                 Spacer()
                 
-                CommentListView(commentCount: topic.replies, commentList: commentList)
+                CommentListView(commentCount: topic.replies, commentList: commentList, topic: topic)
+                    .font(.system(size: settingsConfig.fontSize - 2))
                 
                 if isCommentLoading {
                     HStack {

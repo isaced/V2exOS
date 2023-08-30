@@ -15,6 +15,7 @@ struct CommentListView: View {
     
     var commentCount: Int?
     var commentList: [V2Comment]?
+    var topic: V2Topic
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -56,6 +57,14 @@ struct CommentListView: View {
                                     if let username = comment.member.username {
                                         UserName(username)
                                     }
+
+                                    if comment.member.id == 1 {
+                                        CommentUserTagView(.mod)
+                                    }
+                                    
+                                    if comment.member.id == topic.member?.id {
+                                        CommentUserTagView(.op)
+                                    }
                                     
                                     Text(Date(timeIntervalSince1970: TimeInterval(comment.created)).fromNow())
                                     
@@ -90,7 +99,7 @@ struct CommentListView_Previews: PreviewProvider {
             PreviewData.comment,
             PreviewData.comment
         ]
-        CommentListView(commentList: commentList)
+        CommentListView(commentList: commentList, topic: V2Topic(id: 1))
             .previewLayout(.fixed(width: 400, height: 200))
     }
 }
