@@ -83,8 +83,6 @@ struct TopicListView: View {
             .listStyle(.plain)
             .frame(minWidth: 400, idealWidth: 500)
             .foregroundColor(.black)
-//            .removeBackground()
-//            .background(Color("ContentBackgroundColor"))
             .onFirstAppear {
                 print("onFirstAppear....")
                 Task {

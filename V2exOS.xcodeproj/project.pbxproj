@@ -79,6 +79,9 @@
 		0DEFFCB42A9EDB5100A1585B /* CommentUserTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEFFCB12A9EDB5100A1585B /* CommentUserTagView.swift */; };
 		0DF3300E28A55DEA00AEF312 /* InboxListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF3300D28A55DEA00AEF312 /* InboxListView.swift */; };
 		0DF3301028A56A3600AEF312 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF3300F28A56A3600AEF312 /* StringExt.swift */; };
+		0DFA91232B35BE110081B8AD /* Common.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DFA91222B35BE110081B8AD /* Common.xcassets */; };
+		0DFA91242B35BE110081B8AD /* Common.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DFA91222B35BE110081B8AD /* Common.xcassets */; };
+		0DFA91252B35BE110081B8AD /* Common.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DFA91222B35BE110081B8AD /* Common.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +125,7 @@
 		0DEFFCB12A9EDB5100A1585B /* CommentUserTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentUserTagView.swift; sourceTree = "<group>"; };
 		0DF3300D28A55DEA00AEF312 /* InboxListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxListView.swift; sourceTree = "<group>"; };
 		0DF3300F28A56A3600AEF312 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
+		0DFA91222B35BE110081B8AD /* Common.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Common.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +198,7 @@
 				0DA3F3A528A412F100E7224D /* User */,
 				0D033B25288CD64500129C9B /* V2exOSApp.swift */,
 				0D033B29288CD64700129C9B /* Assets.xcassets */,
+				0DFA91222B35BE110081B8AD /* Common.xcassets */,
 				0D033B2E288CD64700129C9B /* V2exOS.entitlements */,
 				0D033B2B288CD64700129C9B /* Preview Content */,
 			);
@@ -469,6 +474,7 @@
 			files = (
 				0D033B2D288CD64700129C9B /* Preview Assets.xcassets in Resources */,
 				0D033B2A288CD64700129C9B /* Assets.xcassets in Resources */,
+				0DFA91232B35BE110081B8AD /* Common.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,6 +484,7 @@
 			files = (
 				0D2334D82996944600DF4B73 /* Preview Assets.xcassets in Resources */,
 				0D2334D52996944600DF4B73 /* Assets.xcassets in Resources */,
+				0DFA91252B35BE110081B8AD /* Common.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,6 +494,7 @@
 			files = (
 				0DA7FA6E298799B400374B3A /* Preview Assets.xcassets in Resources */,
 				0DA7FA6B298799B400374B3A /* Assets.xcassets in Resources */,
+				0DFA91242B35BE110081B8AD /* Common.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
