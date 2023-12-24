@@ -16,11 +16,10 @@
 </div>
 
 
-
-
 ## 下载
 
-V2exOS 已经发布到 App Store，可以通过下面的链接直接下载；当然你也可以从 [Release](https://github.com/isaced/V2exOS/releases) 页面下载构建好的 `.app` 包，或者自己根据源代码构建。
+- V2exOS 的 macOS 版本已经发布到 App Store，可以通过下面的链接直接下载，当然你也可以从 [Release](https://github.com/isaced/V2exOS/releases) 页面下载构建好的 `.app` 包，或者自己根据源代码构建。
+- V2exOS 的 macOS/iOS/tvOS 版本都可以通过 [TestFlight](https://testflight.apple.com/join/MOtKdxHH) 进行最新版本的测试。
 
 <a href="https://apps.apple.com/cn/app/v2exos/id6443544914?mt=12">
   <img src="https://tools.applemediaservices.com/api/badges/download-on-the-mac-app-store/white/en-US" alt="Download V2exOS on App Store" height="40" />
