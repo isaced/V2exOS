@@ -90,6 +90,8 @@ struct ProfileView: View {
                         } else {
                             Image(systemName: "exclamationmark.circle.fill")
                                 .foregroundColor(.red)
+                            Text("Token 无效")
+                                .foregroundColor(.red)
                         }
                     }
                 }
@@ -118,6 +120,7 @@ struct ProfileView: View {
             if checked {
                 currentUser.saveToken(token: accessToken)
             }
+            isAccessTokenChecked = checked
             isSaveTokenLoading = false
         }
     }
