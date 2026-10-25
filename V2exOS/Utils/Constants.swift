@@ -9,3 +9,6 @@ import Foundation
 
 let NodeNameHot = "HOT"
 let NodeNameAll = "ALL"
+
+/// 切回 App 时自动刷新列表的时间间隔（秒）
+let TopicListAutoRefreshInterval: TimeInterval = 10 * 60

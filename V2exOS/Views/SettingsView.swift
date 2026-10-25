@@ -10,6 +10,10 @@ import SwiftUI
 struct SettingsView: View {
     var body: some View {
         TabView {
+            GeneralSettingsView()
+                .tabItem {
+                    Label("通用", systemImage: "gearshape")
+                }
             AppearanceSettingsView()
                 .tabItem {
                     Label("外观", systemImage: "paintpalette")
@@ -19,7 +23,23 @@ struct SettingsView: View {
                     Label("代理配置", systemImage: "globe.badge.chevron.backward")
                 }
         }
-        .frame(width: 450, height: 250)
+        .frame(width: 450, height: 280)
+    }
+}
+
+struct GeneralSettingsView: View {
+    @EnvironmentObject private var settingsConfig: SettingsConfig
+
+    var body: some View {
+        Form {
+            Toggle("切回 App 时自动刷新列表", isOn: $settingsConfig.autoRefreshOnActive)
+
+            Text("距上次刷新超过 10 分钟时，切回 App 将自动刷新当前列表，也可以使用 Command + R 手动刷新。")
+                .font(.footnote)
+                .foregroundColor(.secondary)
+        }
+        .padding(20)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
     }
 }
 
