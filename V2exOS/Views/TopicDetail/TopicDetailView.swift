@@ -112,6 +112,7 @@ struct TopicDetailView: View {
                     openURL(URL(string: "https://www.v2ex.com/t/\(topic.id)")!)
                 } label: {
                     Image(systemName: "safari")
+                        .foregroundStyle(.primary)
                 }
                 .help("在浏览器中打开")
             }
