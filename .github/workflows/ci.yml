@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build ${{ matrix.scheme }}
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - scheme: V2exOS
+            destination: platform=macOS
+          - scheme: V2exOSiOS
+            destination: generic/platform=iOS Simulator
+          - scheme: V2exOSTV
+            destination: generic/platform=tvOS Simulator
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Cache SwiftPM
+        uses: actions/cache@v6
+        with:
+          path: ~/Library/Caches/org.swift.swiftpm
+          key: ${{ runner.os }}-spm-${{ hashFiles('V2exOS.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved') }}
+          restore-keys: ${{ runner.os }}-spm-
+
+      - name: Build
+        run: |
+          set -o pipefail
+          xcodebuild build \
+            -project V2exOS.xcodeproj \
+            -scheme ${{ matrix.scheme }} \
+            -destination '${{ matrix.destination }}' \
+            -configuration Debug \
+            CODE_SIGNING_ALLOWED=NO \
+            | xcbeautify --renderer github-actions
