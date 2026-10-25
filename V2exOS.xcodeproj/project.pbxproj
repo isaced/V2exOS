@@ -84,9 +84,6 @@
 		0DFA91252B35BE110081B8AD /* Common.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DFA91222B35BE110081B8AD /* Common.xcassets */; };
 		BA0C3B932CFC6067008AE582 /* RichText in Frameworks */ = {isa = PBXBuildFile; productRef = BA0C3B922CFC6067008AE582 /* RichText */; };
 		BADCAA672CFB0EAB0050C240 /* RichText in Frameworks */ = {isa = PBXBuildFile; productRef = BADCAA662CFB0EAB0050C240 /* RichText */; };
-		BADCAA6A2CFB1E900050C240 /* RichText in Frameworks */ = {isa = PBXBuildFile; productRef = BADCAA692CFB1E900050C240 /* RichText */; };
-		BADCAA6D2CFB1EA60050C240 /* RichText in Frameworks */ = {isa = PBXBuildFile; productRef = BADCAA6C2CFB1EA60050C240 /* RichText */; };
-		BAE0635D2CFB0902005B2652 /* RichText in Frameworks */ = {isa = PBXBuildFile; productRef = BAE0635C2CFB0902005B2652 /* RichText */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -138,12 +135,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BADCAA672CFB0EAB0050C240 /* RichText in Frameworks */,
-				BADCAA6D2CFB1EA60050C240 /* RichText in Frameworks */,
 				0DA3F3A428A411ED00E7224D /* KeychainAccess in Frameworks */,
 				BA0C3B932CFC6067008AE582 /* RichText in Frameworks */,
-				BAE0635D2CFB0902005B2652 /* RichText in Frameworks */,
-				BADCAA6A2CFB1E900050C240 /* RichText in Frameworks */,
 				0D8F3356288D245300C27AF1 /* Kingfisher in Frameworks */,
 				0D12614A28A94AA3009DBCE2 /* V2exAPI in Frameworks */,
 				0DA8383A2A9DD3E900C8DA47 /* SwiftUIIntrospect in Frameworks */,
@@ -161,6 +154,7 @@
 				0D0E9CEE2A9DF45D004B0C22 /* SwiftUIIntrospect in Frameworks */,
 				0D2334E62996998500DF4B73 /* MarkdownUI in Frameworks */,
 				0D5555FF2997C1FF00A8B9FD /* KeychainAccess in Frameworks */,
+				BADCAA672CFB0EAB0050C240 /* RichText in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,10 +369,6 @@
 				0DA3F3A328A411ED00E7224D /* KeychainAccess */,
 				0D12614928A94AA3009DBCE2 /* V2exAPI */,
 				0DA838392A9DD3E900C8DA47 /* SwiftUIIntrospect */,
-				BAE0635C2CFB0902005B2652 /* RichText */,
-				BADCAA662CFB0EAB0050C240 /* RichText */,
-				BADCAA692CFB1E900050C240 /* RichText */,
-				BADCAA6C2CFB1EA60050C240 /* RichText */,
 				BA0C3B922CFC6067008AE582 /* RichText */,
 			);
 			productName = V2exOS;
@@ -405,6 +395,7 @@
 				0D2334E92996998500DF4B73 /* V2exAPI */,
 				0D5555FE2997C1FF00A8B9FD /* KeychainAccess */,
 				0D0E9CED2A9DF45D004B0C22 /* SwiftUIIntrospect */,
+				BADCAA662CFB0EAB0050C240 /* RichText */,
 			);
 			productName = V2exOSiOS;
 			productReference = 0D2334CE2996944500DF4B73 /* V2exOSiOS.app */;
@@ -1110,18 +1101,7 @@
 		};
 		BADCAA662CFB0EAB0050C240 /* RichText */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = RichText;
-		};
-		BADCAA692CFB1E900050C240 /* RichText */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = RichText;
-		};
-		BADCAA6C2CFB1EA60050C240 /* RichText */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = RichText;
-		};
-		BAE0635C2CFB0902005B2652 /* RichText */ = {
-			isa = XCSwiftPackageProductDependency;
+			package = BA0C3B912CFC6067008AE582 /* XCRemoteSwiftPackageReference "RichText" */;
 			productName = RichText;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -6,7 +6,11 @@
 //
 import SwiftUI
 import V2exAPI
+#if os(tvOS)
+import MarkdownUI
+#else
 import RichText
+#endif
 
 
 struct TopicDetailView: View {
@@ -57,12 +61,18 @@ struct TopicDetailView: View {
                     
                     Spacer()
                     
-                    RichText(html: topic.contentRendered ?? "")
-
 #if os(tvOS)
-.focusable()
+                    Markdown(topic.content ?? "")
+                        .lineSpacing(6)
+                        .focusable()
+                        .fixedSize(horizontal: false, vertical: true)
+#else
+                    RichText(html: topic.contentRendered ?? "",
+                             configuration: Configuration(
+                                 customCSS: richTextCSS
+                             ))
+                        .fixedSize(horizontal: false, vertical: true)
 #endif
-.fixedSize(horizontal: false, vertical: true)
                 }
 #if os(iOS)
                 .listRowSeparator(.hidden)
@@ -110,9 +120,22 @@ struct TopicDetailView: View {
             } catch {
                 print(error)
             }
-            
+
             isCommentLoading = false
         }
+    }
+
+    // flow-root 使容器成为 BFC，阻止首尾子元素 margin 塌陷到容器外，否则 offsetHeight 偏小导致内容被裁切
+    private var richTextCSS: String {
+        var css = """
+        #NuPlay_RichText { display: flow-root; }
+        """
+#if os(macOS)
+        css += """
+        #NuPlay_RichText { font-size: \(settingsConfig.fontSize)px; }
+        """
+#endif
+        return css
     }
 }
 
