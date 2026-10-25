@@ -85,18 +85,16 @@ struct TopicListView: View {
             .listStyle(.plain)
             .frame(minWidth: 400, idealWidth: 500)
             #if os(macOS)
-            .toolbar {
-                ToolbarItem {
-                    Button {
-                        Task {
-                            await refresh()
-                        }
-                    } label: {
-                        Image(systemName: "arrow.clockwise")
+            // Command + R 手动刷新。用隐藏按钮绑定快捷键，
+            // 避免在列表列添加 toolbar item 后详情页「在浏览器中打开」按钮被挤到左侧
+            .background {
+                Button("刷新列表") {
+                    Task {
+                        await refresh()
                     }
-                    .keyboardShortcut("r", modifiers: .command)
-                    .help("刷新列表 (Command + R)")
                 }
+                .keyboardShortcut("r", modifiers: .command)
+                .opacity(0)
             }
             #endif
             .onChange(of: scenePhase) { phase in
