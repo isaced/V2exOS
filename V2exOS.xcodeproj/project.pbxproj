@@ -82,6 +82,11 @@
 		0DFA91232B35BE110081B8AD /* Common.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DFA91222B35BE110081B8AD /* Common.xcassets */; };
 		0DFA91242B35BE110081B8AD /* Common.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DFA91222B35BE110081B8AD /* Common.xcassets */; };
 		0DFA91252B35BE110081B8AD /* Common.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DFA91222B35BE110081B8AD /* Common.xcassets */; };
+		BA0C3B932CFC6067008AE582 /* RichText in Frameworks */ = {isa = PBXBuildFile; productRef = BA0C3B922CFC6067008AE582 /* RichText */; };
+		BADCAA672CFB0EAB0050C240 /* RichText in Frameworks */ = {isa = PBXBuildFile; productRef = BADCAA662CFB0EAB0050C240 /* RichText */; };
+		BADCAA6A2CFB1E900050C240 /* RichText in Frameworks */ = {isa = PBXBuildFile; productRef = BADCAA692CFB1E900050C240 /* RichText */; };
+		BADCAA6D2CFB1EA60050C240 /* RichText in Frameworks */ = {isa = PBXBuildFile; productRef = BADCAA6C2CFB1EA60050C240 /* RichText */; };
+		BAE0635D2CFB0902005B2652 /* RichText in Frameworks */ = {isa = PBXBuildFile; productRef = BAE0635C2CFB0902005B2652 /* RichText */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -133,7 +138,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BADCAA672CFB0EAB0050C240 /* RichText in Frameworks */,
+				BADCAA6D2CFB1EA60050C240 /* RichText in Frameworks */,
 				0DA3F3A428A411ED00E7224D /* KeychainAccess in Frameworks */,
+				BA0C3B932CFC6067008AE582 /* RichText in Frameworks */,
+				BAE0635D2CFB0902005B2652 /* RichText in Frameworks */,
+				BADCAA6A2CFB1E900050C240 /* RichText in Frameworks */,
 				0D8F3356288D245300C27AF1 /* Kingfisher in Frameworks */,
 				0D12614A28A94AA3009DBCE2 /* V2exAPI in Frameworks */,
 				0DA8383A2A9DD3E900C8DA47 /* SwiftUIIntrospect in Frameworks */,
@@ -365,6 +375,11 @@
 				0DA3F3A328A411ED00E7224D /* KeychainAccess */,
 				0D12614928A94AA3009DBCE2 /* V2exAPI */,
 				0DA838392A9DD3E900C8DA47 /* SwiftUIIntrospect */,
+				BAE0635C2CFB0902005B2652 /* RichText */,
+				BADCAA662CFB0EAB0050C240 /* RichText */,
+				BADCAA692CFB1E900050C240 /* RichText */,
+				BADCAA6C2CFB1EA60050C240 /* RichText */,
+				BA0C3B922CFC6067008AE582 /* RichText */,
 			);
 			productName = V2exOS;
 			productReference = 0D033B22288CD64500129C9B /* V2exOS.app */;
@@ -455,6 +470,7 @@
 				0D12614828A94963009DBCE2 /* XCRemoteSwiftPackageReference "V2exAPI" */,
 				0D2334DC2996972300DF4B73 /* XCRemoteSwiftPackageReference "PagerTabStripView" */,
 				0DA838362A9DD2AB00C8DA47 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+				BA0C3B912CFC6067008AE582 /* XCRemoteSwiftPackageReference "RichText" */,
 			);
 			productRefGroup = 0D033B23288CD64500129C9B /* Products */;
 			projectDirPath = "";
@@ -1001,6 +1017,14 @@
 				minimumVersion = 0.12.0;
 			};
 		};
+		BA0C3B912CFC6067008AE582 /* XCRemoteSwiftPackageReference "RichText" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/NuPlay/RichText.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1078,6 +1102,27 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0DA838362A9DD2AB00C8DA47 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
 			productName = SwiftUIIntrospect;
+		};
+		BA0C3B922CFC6067008AE582 /* RichText */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BA0C3B912CFC6067008AE582 /* XCRemoteSwiftPackageReference "RichText" */;
+			productName = RichText;
+		};
+		BADCAA662CFB0EAB0050C240 /* RichText */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RichText;
+		};
+		BADCAA692CFB1E900050C240 /* RichText */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RichText;
+		};
+		BADCAA6C2CFB1EA60050C240 /* RichText */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RichText;
+		};
+		BAE0635C2CFB0902005B2652 /* RichText */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RichText;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -1,5 +1,5 @@
 {
-  "originHash" : "3c492cb9c268e22d303653fd468c6f05262426890224001c6eef417a7d55ff82",
+  "originHash" : "33d8858131af9c52a540fe2d26de59f80e6bb4be9c0b9345059e6ffe90f02666",
   "pins" : [
     {
       "identity" : "keychainaccess",
@@ -43,6 +43,15 @@
       "location" : "https://github.com/xmartlabs/PagerTabStripView.git",
       "state" : {
         "revision" : "eee372609bc6ed8f777d0d0884d8e9d25074e266"
+      }
+    },
+    {
+      "identity" : "richtext",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/NuPlay/RichText.git",
+      "state" : {
+        "revision" : "3910393f3837a21fd2e414b758942ffd2d62aaa2",
+        "version" : "2.5.0"
       }
     },
     {

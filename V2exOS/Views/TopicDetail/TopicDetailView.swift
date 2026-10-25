@@ -4,10 +4,10 @@
 //
 //  Created by isaced on 2022/7/24.
 //
-
-import MarkdownUI
 import SwiftUI
 import V2exAPI
+import RichText
+
 
 struct TopicDetailView: View {
     @EnvironmentObject private var settingsConfig: SettingsConfig
@@ -57,16 +57,8 @@ struct TopicDetailView: View {
                     
                     Spacer()
                     
-                    Markdown(topic.content ?? "")
-                        .lineSpacing(6)
-#if os(macOS)
-                        .markdownTheme(
-                            Theme()
-                                .text {
-                                    FontSize(settingsConfig.fontSize)
-                                }
-                        )
-#endif
+                    RichText(html: topic.contentRendered ?? "")
+
 #if os(tvOS)
 .focusable()
 #endif
