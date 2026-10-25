@@ -5,7 +5,6 @@
 //  Created by isaced on 2022/7/24.
 //
 
-import Kingfisher
 import SwiftUI
 import V2exAPI
 
@@ -101,13 +100,6 @@ struct TopicListView: View {
         .navigationTitle(_node?.title ?? "V2exOS")
         .navigationSubtitle(_node?.header ?? "")
         #endif
-        .toolbar {
-            KFImage.url(URL(string: _node?.avatarNormal ?? ""))
-                .resizable()
-                .fade(duration: 0.25)
-                .frame(width: 20, height: 20)
-                .mask(RoundedRectangle(cornerRadius: 8))
-        }
     }
     
     func loadData(page: Int = 1) async {
