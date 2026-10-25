@@ -10,15 +10,18 @@ import V2exAPI
 
 struct TopicListView: View {
     @EnvironmentObject private var currentUser: CurrentUserStore
-    
+    @EnvironmentObject private var settingsConfig: SettingsConfig
+    @Environment(\.scenePhase) private var scenePhase
+
     var nodeName: String
-    
+
     @State var isLoading = true
     @State var topics: [V2Topic]?
     @State var page = 1
     @State var error: Error?
     @State var _node: V2Node?
     @State var selectTopic: V2Topic? = nil
+    @State var lastRefreshDate: Date?
     
     func listRowBackgroundColor(_ topic: V2Topic) -> Color {
         if selectTopic == topic {
@@ -81,6 +84,24 @@ struct TopicListView: View {
             }
             .listStyle(.plain)
             .frame(minWidth: 400, idealWidth: 500)
+            #if os(macOS)
+            // Command + R 手动刷新。用隐藏按钮绑定快捷键，
+            // 避免在列表列添加 toolbar item 后详情页「在浏览器中打开」按钮被挤到左侧
+            .background {
+                Button("刷新列表") {
+                    Task {
+                        await refresh()
+                    }
+                }
+                .keyboardShortcut("r", modifiers: .command)
+                .opacity(0)
+            }
+            #endif
+            .onChange(of: scenePhase) { phase in
+                if phase == .active {
+                    autoRefreshIfNeeded()
+                }
+            }
             .onFirstAppear {
                 print("onFirstAppear....")
                 Task {
@@ -102,6 +123,24 @@ struct TopicListView: View {
         #endif
     }
     
+    /// 切回 App 时，距上次刷新超过间隔则自动刷新
+    private func autoRefreshIfNeeded() {
+        guard settingsConfig.autoRefreshOnActive, !isLoading else { return }
+        if let lastRefreshDate, Date().timeIntervalSince(lastRefreshDate) < TopicListAutoRefreshInterval {
+            return
+        }
+        Task {
+            await refresh()
+        }
+    }
+
+    /// 手动刷新，回到第一页并重新加载
+    func refresh() async {
+        error = nil
+        page = 1
+        await loadData()
+    }
+
     func loadData(page: Int = 1) async {
         print("TopcListView loadData... \(nodeName)")
         
@@ -131,6 +170,7 @@ struct TopicListView: View {
             
             if page == 1 {
                 self.topics = topics
+                lastRefreshDate = Date()
             } else {
                 self.page = page
                 if let topics = topics {
