@@ -15,7 +15,8 @@ import RichText
 
 struct TopicDetailView: View {
     @EnvironmentObject private var settingsConfig: SettingsConfig
-    
+    @Environment(\.openURL) private var openURL
+
     var topic: V2Topic
     
     @State var commentList: [V2Comment]?
@@ -103,6 +104,18 @@ struct TopicDetailView: View {
 #if os(iOS)
         .listStyle(.plain)
         .navigationBarTitleDisplayMode(.inline)
+#endif
+#if !os(tvOS)
+        .toolbar {
+            ToolbarItem {
+                Button {
+                    openURL(URL(string: "https://www.v2ex.com/t/\(topic.id)")!)
+                } label: {
+                    Image(systemName: "safari")
+                }
+                .help("在浏览器中打开")
+            }
+        }
 #endif
         .onFirstAppear {
             loadComments(page: 1)
