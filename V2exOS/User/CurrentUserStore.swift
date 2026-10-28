@@ -60,7 +60,7 @@ public class CurrentUserStore: ObservableObject {
         do {
             v2ex.accessToken = token
             let res = try await v2ex.token()
-            if let tokenObj = res?.result {
+            if let tokenObj = res.result {
                 print(tokenObj)
                 if let _ = tokenObj.token {
                     return true
@@ -76,10 +76,9 @@ public class CurrentUserStore: ObservableObject {
     func fetchUser() {
         Task {
             do {
-                if let res = try await v2ex.member() {
-                    if res.success {
-                        user = res.result
-                    }
+                let res = try await v2ex.member()
+                if res.success {
+                    user = res.result
                 }
             } catch {
                 return

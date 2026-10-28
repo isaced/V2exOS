@@ -39,7 +39,7 @@ struct CommentListView: View {
                             .overlay(Color("DividerColor"))
                         
                         HStack(alignment: .top) {
-                            if let avatarUrl = comment.member.avatarLarge {
+                            if let avatarUrl = comment.member?.avatarLarge {
                                 KFImage.url(URL(string: avatarUrl))
                                     .resizable()
                                     .fade(duration: 0.25)
@@ -54,19 +54,21 @@ struct CommentListView: View {
                             
                             VStack(alignment: .leading, spacing: 6) {
                                 HStack {
-                                    if let username = comment.member.username {
+                                    if let username = comment.member?.username {
                                         UserName(username)
                                     }
 
-                                    if comment.member.id == 1 {
+                                    if comment.member?.id == 1 {
                                         CommentUserTagView(.mod)
                                     }
                                     
-                                    if comment.member.id == topic.member?.id {
+                                    if let memberId = comment.member?.id, memberId == topic.member?.id {
                                         CommentUserTagView(.op)
                                     }
                                     
-                                    Text(Date(timeIntervalSince1970: TimeInterval(comment.created)).fromNow())
+                                    if let created = comment.created {
+                                        Text(Date(timeIntervalSince1970: TimeInterval(created)).fromNow())
+                                    }
                                     
                                     Spacer()
                                     
@@ -74,7 +76,7 @@ struct CommentListView: View {
                                 }
                                 .foregroundColor(.secondary)
                                 
-                                Text(LocalizedStringKey(comment.content))
+                                Text(LocalizedStringKey(comment.content ?? ""))
                                     .foregroundColor(.label)
 #if os(macOS)
                                     .font(.system(size: settingsConfig.fontSize - 1))

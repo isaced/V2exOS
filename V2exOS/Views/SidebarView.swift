@@ -59,10 +59,12 @@ struct SidebarView: View {
                     } else {
                         if let nodeList = nodeList {
                             ForEach(nodeList) { node in
-                                NavigationLink(destination: TopicListView(nodeName: node.name),
-                                               tag: node.name,
-                                               selection: $selectionNodeName) {
-                                    Text(node.title ?? "")
+                                if let nodeName = node.name {
+                                    NavigationLink(destination: TopicListView(nodeName: nodeName),
+                                                   tag: nodeName,
+                                                   selection: $selectionNodeName) {
+                                        Text(node.title ?? "")
+                                    }
                                 }
                             }
                         }

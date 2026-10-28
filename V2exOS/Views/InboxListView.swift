@@ -48,10 +48,9 @@ struct InboxListView: View {
         }.onAppear {
             Task {
                 do {
-                    if let res = try await v2ex.notifications(page: 1) {
-                        if let list = res.result {
-                            notificationList.append(contentsOf: list)
-                        }
+                    let res = try await v2ex.notifications(page: 1)
+                    if let list = res.result ?? nil {
+                        notificationList.append(contentsOf: list)
                     }
                 } catch {
                     print(error)
