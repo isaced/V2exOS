@@ -14,8 +14,10 @@ struct NodeListView: View {
 
     var body: some View {
         List(nodeList) { node in
-            NavigationLink(destination: TopicListView(nodeName: node.name)) {
-                Text(node.title ?? "")
+            if let nodeName = node.name {
+                NavigationLink(destination: TopicListView(nodeName: nodeName)) {
+                    Text(node.title ?? "")
+                }
             }
         }
         .overlay {
@@ -27,7 +29,7 @@ struct NodeListView: View {
             Task {
                 self.isLoading = true
                 do {
-                    self.nodeList = try await v2ex.nodesList() ?? []
+                    self.nodeList = try await v2ex.nodesList()
                 } catch {
                     print(error)
                 }

@@ -965,7 +965,7 @@
 			repositoryURL = "https://github.com/isaced/V2exAPI.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.1;
+				minimumVersion = 1.2.1;
 			};
 		};
 		0D2334DC2996972300DF4B73 /* XCRemoteSwiftPackageReference "PagerTabStripView" */ = {

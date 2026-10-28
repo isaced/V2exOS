@@ -66,7 +66,7 @@ struct TopicListView: View {
                 topics = try await v2ex.hotTopics()
                 
             } else {
-                topics = try await v2ex.topics(nodeName: nodeName, page: page)?.result
+                topics = try await v2ex.topics(nodeName: nodeName, page: page).result ?? nil
             }
             
             if page == 1 {

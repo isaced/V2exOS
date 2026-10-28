@@ -1,5 +1,5 @@
 {
-  "originHash" : "33d8858131af9c52a540fe2d26de59f80e6bb4be9c0b9345059e6ffe90f02666",
+  "originHash" : "65ede38941857772efba85406639b4dda8b998768656548aad2d7f1065804093",
   "pins" : [
     {
       "identity" : "keychainaccess",
@@ -77,8 +77,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/isaced/V2exAPI.git",
       "state" : {
-        "revision" : "2e15716b7315a2f274fa17eedaa399095f5d0156",
-        "version" : "1.1.1"
+        "revision" : "cf36822da97b19e9fc08304cd04145df46a14ab4",
+        "version" : "1.2.1"
       }
     }
   ],

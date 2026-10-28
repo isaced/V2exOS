@@ -161,9 +161,9 @@ struct TopicListView: View {
                 topics = try await v2ex.hotTopics()
             } else {
                 if currentUser.user == nil && (self.topics?.isEmpty ?? true) {
-                    topics = try await v2ex.topics(nodeName: nodeName)
+                    topics = try await v2ex.nodeTopics(nodeName: nodeName)
                 } else {
-                    topics = try await v2ex.topics(nodeName: nodeName, page: page)?.result
+                    topics = try await v2ex.topics(nodeName: nodeName, page: page).result ?? nil
                 }
                 _node = try await v2ex.nodesShow(name: nodeName)
             }
