@@ -22,10 +22,14 @@ struct TopicListView: View {
     @State var _node: V2Node?
     @State var selectTopic: V2Topic? = nil
     @State var lastRefreshDate: Date?
+    @State var hoveredTopic: V2Topic?
     
     func listRowBackgroundColor(_ topic: V2Topic) -> Color {
         if selectTopic == topic {
             return Color("ListRowHighlightBackgroundColor")
+        }
+        if hoveredTopic == topic {
+            return Color("ListRowHoverBackgroundColor")
         }
         return Color("ContentBackgroundColor")
     }
@@ -48,6 +52,14 @@ struct TopicListView: View {
                             TopicListCellView(topic: topic)
                         }
                         .listRowBackground(listRowBackgroundColor(topic))
+                        .onHover { hovering in
+                            if hovering {
+                                hoveredTopic = topic
+                            } else if hoveredTopic == topic {
+                                hoveredTopic = nil
+                            }
+                        }
+                        .animation(.easeInOut(duration: 0.12), value: hoveredTopic)
                         .padding(.horizontal, 8)
                         .padding(.vertical, 4)
                         #endif
